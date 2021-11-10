@@ -92,7 +92,7 @@ const Hero = () => {
 					Luxery Eyeware Collection
 				</p>
 				<Link
-					to="home#services"
+					to="/explore"
 					className=" cursor-default bg-white  text-black flex items-center text-xl w-48 mb-8 pl-1 pt-1 pb-1 justify-center mt-3 font-medium uppercase border-2 border-white transition duration-500 ease-in-out transform hover:shadow-2xl hover:bg-opacity-0 hover:text-white"
 				>
 					Shop Now!

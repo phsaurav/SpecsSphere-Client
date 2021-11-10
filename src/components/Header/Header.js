@@ -10,7 +10,7 @@ const Header = () => {
 	const { user, logOut } = useAuth();
 	const [isOpen, setIsOpen] = useState(false);
 	return (
-		<div className="bg-brand-1 md:h-screen md:w-72 xl:w-80">
+		<div className="bg-brand-1 md:min-h-screen md:w-72 xl:w-80">
 			<nav className="relative z-20">
 				<div className="container mx-auto">
 					<div className="text-black flex flex-col items-center">
@@ -69,7 +69,7 @@ const Header = () => {
 								<div className="hidden md:flex flex-col md:w-72 xl:w-80 uppercase text-sm lg:text-base">
 									<NavLink
 										to="/home"
-										className="font-base  text-bluegray-300 transition duration-500 ease-in-out hover:font-semibold hover:text-white link-underline  px-3 lg:px-6 py-4 link link-underline border-b border-brand-6"
+										className="font-base  text-bluegray-300 transition duration-500 ease-in-out hover:font-semibold hover:text-white link-underline  px-3 lg:px-6 py-4 link link-underline border-b border-brand-6 text-sm"
 										activeStyle={{
 											backgroundColor: '#FFFFFF',
 											color: '#1e1e1e',
@@ -80,7 +80,7 @@ const Header = () => {
 									</NavLink>
 									<NavLink
 										to="/explore"
-										className="font-base text-bluegray-300 transition duration-500 ease-in-out hover:text-white hover:font-semibold link-underline px-3 lg:px-6 py-4 border-b border-brand-6"
+										className="font-base text-bluegray-300 transition duration-500 ease-in-out hover:text-white hover:font-semibold link-underline px-3 lg:px-6 py-4 border-b border-brand-6 text-sm"
 										activeStyle={{
 											backgroundColor: '#FFFFFF',
 											color: '#1e1e1e',
@@ -94,7 +94,7 @@ const Header = () => {
 									<div className="hidden md:flex flex-col md:w-72 xl:w-80 uppercase text-sm lg:text-base">
 										<NavLink
 											to="/dashboard"
-											className="font-base text-bluegray-300 transition duration-500 ease-in-out hover:text-white link hover:font-semibold link-underline px-3 lg:px-6 py-4 border-b border-brand-6"
+											className="font-base text-bluegray-300 transition duration-500 ease-in-out hover:text-white link hover:font-semibold link-underline px-3 lg:px-6 py-4 border-b border-brand-6 text-sm"
 											activeStyle={{
 												backgroundColor: '#FFFFFF',
 												color: '#1e1e1e',
