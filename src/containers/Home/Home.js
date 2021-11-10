@@ -1,15 +1,16 @@
 import React from 'react';
 import Footer from '../../components/Footer/Footer';
 import Header from '../../components/Header/Header';
+import Hero from '../../components/Hero/Hero';
 
 const Home = () => {
 	return (
 		<div className="flex flex-col md:flex-row">
 			<Header></Header>
-			<div className="bg-white h-screen w-1"></div>
+			<div className="hidden md:block bg-white h-screen w-1"></div>
 			<div className="flex flex-col justify-between w-full">
 				<div>
-					<h1>This is Home</h1>
+					<Hero></Hero>
 				</div>
 				<Footer></Footer>
 			</div>

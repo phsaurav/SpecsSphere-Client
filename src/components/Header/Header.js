@@ -3,7 +3,7 @@ import { Link, NavLink } from 'react-router-dom';
 import logo from '../../assets/logo_title_dark.png';
 import useAuth from '../../hooks/useAuth';
 import { Transition } from '@headlessui/react';
-import { FaUserCircle } from 'react-icons/fa';
+import { BiUser } from 'react-icons/bi';
 import './Header.css';
 
 const Header = () => {
@@ -25,66 +25,86 @@ const Header = () => {
 							<div>
 								{/* <!-- Header Icons --> */}
 								{user.displayName ? (
-									<div className="flex items-center justify-center">
-										<div className="h-24 my-5">
-											<button
-												onClick={logOut}
-												className="font-semibold text-brand-1 px-8 py-2 transition duration-300 ease-in-out bg-white mb-2"
-											>
-												Log Out
-											</button>
+									<div className=" hidden md:flex items-center justify-center mb-5">
+										<div className="h-24 mb-5">
 											<Link to="/mytours">
-												<div className="flex w-36 items-center justify-center h-8 mr-1">
+												<div className="flex w-36 items-center justify-center h-8 mr-2">
+													<div className="w-5 h-5 m-1 text-xl border-bra mt-4">
+														<BiUser className="text-white text-xl h-5 w-5" />
+													</div>
 													<p className="font-semibold text-white  py-1 transition duration-300 ease-in-out text-left pl-1 mt-4">
-														{user.displayName
-															.length > 10
+														{user.displayName.toUpperCase()
+															.length > 12
 															? user.displayName.split(
 																	' '
 															  )[0]
-															: user.displayName}
+															: user.displayName.toUpperCase()}
 													</p>
 												</div>
 											</Link>
+											<div
+												onClick={logOut}
+												className="cursor-default font-semibold text-brand-1 px-8 py-2 transition duration-300 ease-in-out hover:bg-brand-1 hover:text-white bg-white mb-10 uppercase border-2 shadow-xl mt-5 border-white"
+											>
+												Sign Out
+											</div>
 										</div>
 									</div>
 								) : (
-									<div className="flex justify-center items-end">
+									<div className="hidden md:flex justify-center items-end">
 										{' '}
 										<NavLink
 											to="/login"
-											className="font-semibold text-brand-1 px-8 py-2 transition duration-300 ease-in-out bg-white mb-10"
+											className="font-semibold text-brand-1 px-8 py-2 transition duration-300 ease-in-out hover:bg-brand-1  hover:text-white bg-white mb-10 uppercase border-2 shadow-xl border-white"
 											activeStyle={{
 												backgroundColor: '#FFFFFF',
 												color: '#1e1e1e',
 												width: 'full',
 											}}
 										>
-											Login
+											Sign In
 										</NavLink>
 									</div>
 								)}
 								<div className="hidden md:flex flex-col md:w-72 xl:w-80 uppercase text-sm lg:text-base">
 									<NavLink
 										to="/home"
-										className="font-semibold text-bluegray-300 transition duration-500 ease-in-out hover:text-white link link-underline link-underline-red px-3 lg:px-6 py-4"
+										className="font-base  text-bluegray-300 transition duration-500 ease-in-out hover:font-semibold hover:text-white link-underline  px-3 lg:px-6 py-4 link link-underline border-b border-brand-6"
 										activeStyle={{
 											backgroundColor: '#FFFFFF',
 											color: '#1e1e1e',
+											fontWeight: '600',
 										}}
 									>
 										Home
 									</NavLink>
 									<NavLink
 										to="/explore"
-										className="font-semibold text-bluegray-300 transition duration-500 ease-in-out hover:text-white link link-underline link-underline-red px-3 lg:px-6 py-4"
+										className="font-base text-bluegray-300 transition duration-500 ease-in-out hover:text-white hover:font-semibold link-underline px-3 lg:px-6 py-4 border-b border-brand-6"
 										activeStyle={{
 											backgroundColor: '#FFFFFF',
 											color: '#1e1e1e',
+											fontWeight: '600',
 										}}
 									>
-										All Products
+										All Sunglasses
 									</NavLink>
 								</div>
+								{user.displayName && (
+									<div className="hidden md:flex flex-col md:w-72 xl:w-80 uppercase text-sm lg:text-base">
+										<NavLink
+											to="/dashboard"
+											className="font-base text-bluegray-300 transition duration-500 ease-in-out hover:text-white link hover:font-semibold link-underline px-3 lg:px-6 py-4 border-b border-brand-6"
+											activeStyle={{
+												backgroundColor: '#FFFFFF',
+												color: '#1e1e1e',
+												fontWeight: '600',
+											}}
+										>
+											Dash Board
+										</NavLink>
+									</div>
+								)}
 							</div>
 						</div>
 
@@ -152,40 +172,40 @@ const Header = () => {
 							>
 								<NavLink
 									to="/home"
-									className="font-semibold text-bg-brand-1 hover:bg-bg-brand-1 hover:text-brand-2 block px-3 py-2  text-base w-full "
+									className="font-base text-bg-brand-1 hover:bg-bg-brand-1 hover:text-brand-2 block px-3 py-2  text-base w-full "
 								>
 									Home
 								</NavLink>
 								<NavLink
-									to="/about"
-									className="font-semibold text-bg-brand-1 hover:bg-bg-brand-1 hover:text-brand-2 block px-3 py-2  text-base w-full"
+									to="/explore"
+									className="font-base text-bg-brand-1 hover:bg-bg-brand-1 hover:text-brand-2 block px-3 py-2  text-base w-full"
 								>
-									About Us
+									All Products
 								</NavLink>
 
 								{user.displayName ? (
 									<div className="flex items-center flex-col">
 										<NavLink
 											to="/addpackage"
-											className="font-semibold text-bg-brand-1 hover:bg-bg-brand-1 hover:text-brand-2 block px-3 py-2  text-base w-full"
+											className="font-base text-bg-brand-1 hover:bg-bg-brand-1 hover:text-brand-2 block px-3 py-2  text-base w-full"
 										>
-											Add Package
+											Dash Board
 										</NavLink>
 										<NavLink
 											to="/alltours"
-											className="font-semibold text-bg-brand-1 hover:bg-bg-brand-1 hover:text-brand-2 block px-3 py-2  text-base w-full"
+											className="font-base text-bg-brand-1 hover:bg-bg-brand-1 hover:text-brand-2 block px-3 py-2  text-base w-full"
 										>
 											All Tours
 										</NavLink>
 										<NavLink
 											to="/mytours"
-											className="font-semibold text-bg-brand-1 hover:bg-bg-brand-1 hover:text-brand-2 block px-3 py-2  text-base w-full"
+											className="font-base text-bg-brand-1 hover:bg-bg-brand-1 hover:text-brand-2 block px-3 py-2  text-base w-full"
 										>
 											My Tours
 										</NavLink>
 										<button
 											onClick={logOut}
-											className="font-semibold text-bg-brand-1 hover:bg-bg-brand-1 hover:text-brand-2 block px-3 py-2  text-base w-full"
+											className="font-base text-bg-brand-1 hover:bg-bg-brand-1 hover:text-brand-2 block px-3 py-2  text-base w-full"
 										>
 											Log Out
 										</button>
@@ -201,7 +221,7 @@ const Header = () => {
 													<FaUserCircle className="text-brand-2 text-xl h-6 w-6" />
 												)}
 											</div>
-											<p className="font-semibold text-bg-brand-1  py-1 transition duration-300 ease-in-out text-left pl-1 text-lg uppercase">
+											<p className="font-base text-bg-brand-1  py-1 transition duration-300 ease-in-out text-left pl-1 text-lg uppercase">
 												{user.displayName}
 											</p>
 										</div>
@@ -211,7 +231,7 @@ const Header = () => {
 										{' '}
 										<NavLink
 											to="/login"
-											className="font-semibold text-bg-brand-1 hover:bg-bg-brand-1 hover:text-brand-2 block px-3 py-2  text-base w-full"
+											className="font-base text-bg-brand-1 hover:bg-bg-brand-1 hover:text-brand-2 block px-3 py-2  text-base w-full"
 										>
 											Login
 										</NavLink>

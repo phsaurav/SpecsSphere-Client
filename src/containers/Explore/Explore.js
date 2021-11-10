@@ -9,7 +9,7 @@ const Explore = () => {
 			<div className="bg-white h-screen w-1"></div>
 			<div className="flex flex-col justify-between w-full">
 				<div>
-					<h1>This is Home</h1>
+					<h1>This is Explore Section</h1>
 				</div>
 				<Footer></Footer>
 			</div>

@@ -10,6 +10,8 @@ import NotFound from './containers/NotFound/NotFound';
 import AuthProvider from './context/AuthProvider/AuthProvider';
 import Login from './containers/Login/Login';
 import Explore from './containers/Explore/Explore';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
+import Dashboard from './containers/Dashboard/Dashboard';
 
 function App() {
 	return (
@@ -29,6 +31,9 @@ function App() {
 						<Route path="/explore">
 							<Explore></Explore>
 						</Route>
+						<PrivateRoute path="/dashboard">
+							<Dashboard></Dashboard>
+						</PrivateRoute>
 						<Route>
 							<NotFound></NotFound>
 						</Route>
