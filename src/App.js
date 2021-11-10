@@ -9,6 +9,7 @@ import Home from './containers/Home/Home';
 import NotFound from './containers/NotFound/NotFound';
 import AuthProvider from './context/AuthProvider/AuthProvider';
 import Login from './containers/Login/Login';
+import Explore from './containers/Explore/Explore';
 
 function App() {
 	return (
@@ -24,6 +25,9 @@ function App() {
 						</Route>
 						<Route path="/login">
 							<Login></Login>
+						</Route>
+						<Route path="/explore">
+							<Explore></Explore>
 						</Route>
 						<Route>
 							<NotFound></NotFound>

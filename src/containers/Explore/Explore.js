@@ -2,7 +2,7 @@ import React from 'react';
 import Footer from '../../components/Footer/Footer';
 import Header from '../../components/Header/Header';
 
-const Home = () => {
+const Explore = () => {
 	return (
 		<div className="flex flex-col md:flex-row">
 			<Header></Header>
@@ -17,4 +17,4 @@ const Home = () => {
 	);
 };
 
-export default Home;
+export default Explore;

@@ -24,110 +24,66 @@ const Header = () => {
 						<div className="flex items-end justify-center">
 							<div>
 								{/* <!-- Header Icons --> */}
+								{user.displayName ? (
+									<div className="flex items-center justify-center">
+										<div className="h-24 my-5">
+											<button
+												onClick={logOut}
+												className="font-semibold text-brand-1 px-8 py-2 transition duration-300 ease-in-out bg-white mb-2"
+											>
+												Log Out
+											</button>
+											<Link to="/mytours">
+												<div className="flex w-36 items-center justify-center h-8 mr-1">
+													<p className="font-semibold text-white  py-1 transition duration-300 ease-in-out text-left pl-1 mt-4">
+														{user.displayName
+															.length > 10
+															? user.displayName.split(
+																	' '
+															  )[0]
+															: user.displayName}
+													</p>
+												</div>
+											</Link>
+										</div>
+									</div>
+								) : (
+									<div className="flex justify-center items-end">
+										{' '}
+										<NavLink
+											to="/login"
+											className="font-semibold text-brand-1 px-8 py-2 transition duration-300 ease-in-out bg-white mb-10"
+											activeStyle={{
+												backgroundColor: '#FFFFFF',
+												color: '#1e1e1e',
+												width: 'full',
+											}}
+										>
+											Login
+										</NavLink>
+									</div>
+								)}
 								<div className="hidden md:flex flex-col md:w-72 xl:w-80 uppercase text-sm lg:text-base">
 									<NavLink
 										to="/home"
-										className="font-semibold text-bluegray-400 hover:text-bluegray-600 link link-underline link-underline-red px-3 lg:px-6 py-1"
+										className="font-semibold text-bluegray-300 transition duration-500 ease-in-out hover:text-white link link-underline link-underline-red px-3 lg:px-6 py-4"
 										activeStyle={{
 											backgroundColor: '#FFFFFF',
-											color: 'bg-brand-1',
+											color: '#1e1e1e',
 										}}
 									>
 										Home
 									</NavLink>
 									<NavLink
-										to="/about"
-										className="font-semibold text-bluegray-400 hover:text-bluegray-600 link link-underline link-underline-red px-3 lg:px-6 py-1"
+										to="/explore"
+										className="font-semibold text-bluegray-300 transition duration-500 ease-in-out hover:text-white link link-underline link-underline-red px-3 lg:px-6 py-4"
 										activeStyle={{
 											backgroundColor: '#FFFFFF',
-											color: 'bg-brand-1',
+											color: '#1e1e1e',
 										}}
 									>
 										All Products
 									</NavLink>
-
-									{user.displayName ? (
-										<div className="flex items-end">
-											<NavLink
-												to="/addpackage"
-												className="font-semibold text-bluegray-400 hover:text-bluegray-600 link link-underline link-underline-red px-3 lg:px-6 py-1"
-												activeStyle={{
-													backgroundColor: '#FFFFFF',
-													color: 'bg-brand-1',
-												}}
-											>
-												Add Package
-											</NavLink>
-											<NavLink
-												to="/alltours"
-												className="font-semibold text-bluegray-400 hover:text-bluegray-600 link link-underline link-underline-red px-3 lg:px-6 py-1"
-												activeStyle={{
-													backgroundColor: '#FFFFFF',
-													color: 'bg-brand-1',
-												}}
-											>
-												All Tours
-											</NavLink>
-											<NavLink
-												to="/mytours"
-												className="font-semibold text-bluegray-400 hover:text-bluegray-600 link link-underline link-underline-red px-3 lg:px-6 py-1"
-												activeStyle={{
-													backgroundColor: '#FFFFFF',
-													color: 'bg-brand-1',
-												}}
-											>
-												My Tours
-											</NavLink>
-
-											<div className="flex flex-col justify-between h-20">
-												<button
-													onClick={logOut}
-													className="font-semibold text-bg-brand-1 px-5 pb-2 pt-1 transition duration-300 ease-in-out text-center bg-brand-4 hover:bg-brand-5"
-												>
-													Log Out
-												</button>
-												<Link to="/mytours">
-													<div className="flex w-36 items-center justify-center h-8 mr-1">
-														<div className="w-6 h-6 m-1 text-xl border-bra">
-															{user.photoURL ? (
-																<img
-																	className="rounded-full"
-																	src={
-																		user.photoURL
-																	}
-																	alt=""
-																/>
-															) : (
-																<FaUserCircle className="text-brand-2 text-xl h-6 w-6" />
-															)}
-														</div>
-														<p className="font-semibold text-brand-2  py-1 transition duration-300 ease-in-out text-left pl-1">
-															{user.displayName
-																.length > 10
-																? user.displayName.split(
-																		' '
-																  )[0]
-																: user.displayName}
-														</p>
-													</div>
-												</Link>
-											</div>
-										</div>
-									) : (
-										<div className="flex flex-col justify-end h-20">
-											{' '}
-											<NavLink
-												to="/login"
-												className="font-semibold text-bluegray-400 px-5 py-1 transition duration-300 ease-in-out "
-												activeStyle={{
-													backgroundColor: '#FFFFFF',
-													color: 'bg-brand-1',
-												}}
-											>
-												Login
-											</NavLink>
-										</div>
-									)}
 								</div>
 							</div>
 						</div>
