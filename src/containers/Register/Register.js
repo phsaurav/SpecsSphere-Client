@@ -7,6 +7,7 @@ import { BsGoogle } from 'react-icons/bs';
 import useAuth from '../../hooks/useAuth';
 import { useForm } from 'react-hook-form';
 
+
 const Register = () => {
 	const {
 		auth,

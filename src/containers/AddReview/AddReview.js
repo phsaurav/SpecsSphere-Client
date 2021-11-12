@@ -2,11 +2,31 @@ import React from 'react';
 import DashHeader from '../../components/DashHeader/DashHeader';
 import Footer from '../../components/Footer/Footer';
 import { useForm } from 'react-hook-form';
+import useAuth from '../../hooks/useAuth';
 
 const AddReview = () => {
 	const { handleSubmit, register, reset } = useForm();
+	const { user } = useAuth();
 	const onSubmit = (data) => {
-		console.log(data);
+		Object.keys(data).forEach((k) => data[k] === '' && delete data[k]);
+		data.name = user.name;
+		data.img = user.photoURL;
+		data.email = user.email;
+
+		fetch('http://localhost:5000/review', {
+			method: 'POST',
+			headers: {
+				'content-type': 'application/json',
+			},
+			body: JSON.stringify(data),
+		})
+			.then((res) => res.json())
+			.then((result) => {
+				if (result.insertedId) {
+					alert('Your Review Added. \n Thank you!!');
+					reset();
+				}
+			});
 	};
 	return (
 		<div className="flex flex-col md:flex-row">
@@ -16,69 +36,33 @@ const AddReview = () => {
 
 			<div className="flex flex-col justify-between w-full">
 				<div>
-					<div className="bg-brand-7">
+					<div className="">
 						<div
-							className="bg-brand-7 flex justify-center min-h-screen pt-20"
+							className=" flex justify-center min-h-screen pt-20"
 							style={{ height: '70vh' }}
 						>
 							<form
 								className="flex flex-col items-center text-brand-1"
 								onSubmit={handleSubmit(onSubmit)}
 							>
-								<input
-									required
-									type="text"
-									placeholder="Title"
-									className="text-sm w-96 bg-gray-100 flex flex-row justify-between h-12 pl-5 rounded-lg mb-3"
-									style={{ outline: 'none' }}
-									{...register('title')}
-								/>
-								<input
-									required
-									type="text"
-									placeholder="Location"
-									className="text-sm w-96 bg-gray-100 flex flex-row justify-between h-12 pl-5 rounded-lg mb-3"
-									style={{ outline: 'none' }}
-									{...register('location')}
-								/>
-								<input
-									required
-									type="text"
-									placeholder="Heading"
-									className="text-sm w-96 bg-gray-100 flex flex-row justify-between h-12 pl-5 rounded-lg mb-3"
-									style={{ outline: 'none' }}
-									{...register('heading')}
-								/>
+								<select
+									className="text-sm w-96 bg-gray-100 flex flex-row justify-between h-12 pl-5 rounded-lg my-5 pr-5"
+									name="Gender"
+									{...register('star')}
+								>
+									<option value="5">5 Star</option>
+									<option value="4">4 Star</option>
+									<option value="3">3 Star</option>
+									<option value="2">2 Star</option>
+									<option value="1">1 Star</option>
+								</select>
+
 								<textarea
 									required
-									placeholder="Description"
+									placeholder="Write Your Review Here"
 									className="text-sm w-96 bg-gray-100 flex flex-row justify-between h-20 py-2 pl-5 rounded-lg mb-3"
 									style={{ outline: 'none' }}
-									{...register('description')}
-								/>
-								<input
-									required
-									type="number"
-									placeholder="Number of Days"
-									className="text-sm w-96 bg-gray-100 flex flex-row justify-between h-12 pl-5 rounded-lg mb-3"
-									style={{ outline: 'none' }}
-									{...register('days')}
-								/>
-								<input
-									required
-									type="number"
-									placeholder="Tour cost in Taka"
-									className="text-sm w-96 bg-gray-100 flex flex-row justify-between h-12 pl-5 rounded-lg mb-3"
-									style={{ outline: 'none' }}
-									{...register('price')}
-								/>
-								<input
-									required
-									type="url"
-									placeholder="Image URL"
-									className="text-sm w-96 bg-gray-100 flex flex-row justify-between h-12 pl-5 rounded-lg mb-3"
-									style={{ outline: 'none' }}
-									{...register('img')}
+									{...register('review')}
 								/>
 								<button
 									type="submit"
