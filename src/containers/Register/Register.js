@@ -3,19 +3,21 @@ import logo from '../../assets/logo_dark.png';
 import { Link } from 'react-router-dom';
 import { MdClose } from 'react-icons/md';
 import { useLocation, useHistory } from 'react-router-dom';
-import useAuth from '../../hooks/useAuth';
 import { BsGoogle } from 'react-icons/bs';
+import useAuth from '../../hooks/useAuth';
 import { useForm } from 'react-hook-form';
 
-const Login = () => {
+const Register = () => {
 	const {
-		processLogin,
-		error,
+		auth,
 		setError,
+		error,
+		createNewUser,
 		setUser,
 		setIsLoading,
 		signInUsingGoogle,
 		saveUser,
+		updateProfile,
 	} = useAuth();
 	const location = useLocation();
 	const history = useHistory();
@@ -40,10 +42,38 @@ const Login = () => {
 
 	const onSubmit = (data) => {
 		console.log(data);
-		processLogin(data.email, data.password)
+		if (data?.password?.length <= 6) {
+			setError('Password Must be atleast 6 character long');
+			return;
+		}
+		if (!/^(?=.*[0-9])/.test(data.password)) {
+			setError('Password Must have one nubmer!');
+			return;
+		}
+		if (data.password !== data.password2) {
+			setError("Password Doesn't match!!");
+			return;
+		}
+		setError('');
+		createNewUser(data.email, data.password)
 			.then((res) => {
-				setUser(res.user);
+				const email = data.email;
+				const newUser = { email, displayName: data.name };
+				const url =
+					data.gender === 'male'
+						? 'https://i.ibb.co/7VH1GDT/male.png'
+						: 'https://i.ibb.co/VmSVPNR/female.png';
+				setUser(newUser);
+				saveUser(data.email, data.name, url, 'POST');
+				updateProfile(auth.currentUser, {
+					displayName: data.name,
+					photoURL: url,
+				})
+					.then(() => {})
+					.catch((err) => {});
 				setError('');
+				console.log(res.user);
+				setUser(res.user);
 			})
 			.catch((error) => {
 				setError(error.message);
@@ -56,7 +86,7 @@ const Login = () => {
 	};
 
 	return (
-		<div>
+		<div className="w-full h-full fixed block top-0 left-0 bg-white  z-30">
 			<Link to="/home">
 				<button
 					type="button"
@@ -71,6 +101,13 @@ const Login = () => {
 				<form className="mt-4 " onSubmit={handleSubmit(onSubmit)}>
 					<input
 						type="text"
+						placeholder="Name"
+						className="text-sm w-80 bg-gray-100 flex flex-row justify-between h-12 pl-5 rounded-lg my-5"
+						style={{ outline: 'none' }}
+						{...register('name')}
+					/>
+					<input
+						type="text"
 						placeholder="Email"
 						className="text-sm w-80 bg-gray-100 flex flex-row justify-between h-12 pl-5 rounded-lg my-5"
 						style={{ outline: 'none' }}
@@ -83,13 +120,28 @@ const Login = () => {
 						style={{ outline: 'none' }}
 						{...register('password')}
 					/>
+					<input
+						type="password"
+						placeholder="Confirm Password"
+						className="text-sm w-80 bg-gray-100 flex flex-row justify-between h-12 pl-5 rounded-lg my-5"
+						style={{ outline: 'none' }}
+						{...register('password2')}
+					/>
+					<select
+						className="text-sm w-80 bg-gray-100 flex flex-row justify-between h-12 pl-5 rounded-lg my-5 pr-5"
+						name="Gender"
+						{...register('gender')}
+					>
+						<option value="male">Male</option>
+						<option value="female">Female</option>
+					</select>
 					<button className="text-white py-2 px-7 w-80 rounded-md bg-brand-1">
-						Log In
+						Sign Up
 					</button>
 					<br />
-					<Link to="/register">
-						<p className="text-center pt-3 font-semibold text-brand-1">
-							New user?
+					<Link to="/login">
+						<p className="text-center py-3 font-semibold text-brand-1">
+							Already have an account
 						</p>
 					</Link>
 				</form>
@@ -97,7 +149,7 @@ const Login = () => {
 					{error}
 				</p>
 				<hr className="border-0 w-80 bg-bluegray-300 text-gray-500 h-px"></hr>
-				<div className="flex justify-center mb-80">
+				<div className="flex justify-center mb-44">
 					<button
 						onClick={handleGoogleSignIn}
 						className="rounded-full bg-brand-1 text-white text-2xl p-2 mt-5 hover:bg-white  border-white hover:border-brand-1 border-2 hover:text-brand-1"
@@ -110,4 +162,4 @@ const Login = () => {
 	);
 };
 
-export default Login;
+export default Register;

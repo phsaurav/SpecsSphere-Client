@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import initializeAuthentication from '../services/Firebase/firbase.init';
-import { useHistory } from 'react-router-dom';
 import {
 	getAuth,
 	signInWithPopup,
@@ -16,8 +15,6 @@ import {
 initializeAuthentication();
 
 const useFirebase = () => {
-	const history = useHistory();
-
 	const [user, setUser] = useState({});
 	const [name, setName] = useState('');
 	const [error, setError] = useState('');
@@ -48,31 +45,12 @@ const useFirebase = () => {
 
 	const createNewUser = (email, password) => {
 		setIsLoading(true);
-		createUserWithEmailAndPassword(auth, email, password)
-			.then((res) => {
-				const newUser = { email, displayName: name };
-				setUser(newUser);
-
-				saveUser(email, name, 'POST');
-
-				updateProfile(auth.currentUser, {
-					displayName: name,
-				})
-					.then(() => {})
-					.catch((err) => {});
-
-				setError('');
-				history.replace('/');
-			})
-			.catch((error) => {
-				setError(error.message);
-			})
-			.finally(() => setIsLoading(false));
+		return createUserWithEmailAndPassword(auth, email, password);
 	};
 
-	const saveUser = (email, displayName, method) => {
-		console.log(email, displayName);
-		const user = { email, displayName };
+	const saveUser = (email, displayName, photoURL, method) => {
+		console.log(email, displayName, photoURL);
+		const user = { email, displayName, photoURL };
 		fetch('http://localhost:5000/users', {
 			method: method,
 			headers: {
@@ -104,6 +82,7 @@ const useFirebase = () => {
 	}, []);
 
 	return {
+		auth,
 		user,
 		admin,
 		name,
@@ -119,6 +98,7 @@ const useFirebase = () => {
 		createNewUser,
 		saveUser,
 		setName,
+		updateProfile,
 	};
 };
 

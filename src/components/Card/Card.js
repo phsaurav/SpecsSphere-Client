@@ -5,11 +5,11 @@ import { AiOutlineStar } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 
 const Card = ({ product }) => {
-	const { title, img, type, brand, price, star } = product;
+	const { _id, title, img, type, brand, price, star } = product;
 	return (
 		<div>
 			<div className="flex flex-col w-96 bg-white overflow-hidden h-96 justify-center mx-auto transition duration-500 ease-in-out hover:shadow-md ">
-				<Link to="/order">
+				<Link to={`/order/${_id}`}>
 					<div
 						className="bg-contain h-44 bg-no-repeat relative mx-auto"
 						style={{

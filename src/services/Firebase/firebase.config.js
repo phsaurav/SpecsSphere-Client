@@ -1,9 +1,10 @@
 const firebaseConfig = {
-	apiKey: 'AIzaSyC_o5T1_013Za3oLfdbIzCj9Mx0bXXccDA',
-	authDomain: 'new-app-df1d9.firebaseapp.com',
-	projectId: 'new-app-df1d9',
-	storageBucket: 'new-app-df1d9.appspot.com',
-	messagingSenderId: '503727464814',
-	appId: '1:503727464814:web:ba7f7e2301da080462a17f',
+	apiKey: 'AIzaSyA1B68hVtqA_-uDODAwbxfDiLhpzvzg6dQ',
+	authDomain: 'ema-jhon101.firebaseapp.com',
+	projectId: 'ema-jhon101',
+	storageBucket: 'ema-jhon101.appspot.com',
+	messagingSenderId: '697679003055',
+	appId: '1:697679003055:web:8c9e73da28d711dc50835a',
+	measurementId: 'G-HG19VCHGYT',
 };
 export default firebaseConfig;

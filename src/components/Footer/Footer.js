@@ -6,7 +6,7 @@ const Footer = () => {
 	return (
 		<div className="">
 			<footer>
-				<div className="bg-brand-11 relative top-100 w-full h-48 flex flex-col justify-between ">
+				<div className="bg-white border-t-2  relative top-100 w-full h-48 flex flex-col justify-between ">
 					<div className="flex justify-center pt-8">
 						<NavLink to="/home">
 							<img className="h-7" src={logo} alt="logo" />

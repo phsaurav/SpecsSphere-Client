@@ -7,11 +7,10 @@ import Reviews from './Reviews/Reviews';
 
 const Home = () => {
 	return (
-		<div className="flex flex-col md:flex-row">
-			<div className="md:min-h-screen md:w-80 xl:w-96">
+		<div className="flex flex-col">
+			<div className="">
 				<Header></Header>
 			</div>
-			<div className="hidden md:block bg-white h-screen w-1"></div>
 			<div className="flex flex-col justify-between w-full">
 				<div>
 					<Hero></Hero>

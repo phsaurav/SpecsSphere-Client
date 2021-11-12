@@ -7,9 +7,10 @@ import useProducts from '../../hooks/useProducts';
 const Explore = () => {
 	const [products] = useProducts();
 	return (
-		<div className="flex flex-col md:flex-row">
-			<Header></Header>
-			<div className="bg-white h-screen w-1"></div>
+		<div className="flex flex-col">
+			<div className="">
+				<Header></Header>
+			</div>
 			<div className="flex flex-col justify-between w-full">
 				<div>
 					<h1 className="mt-10 mb-2 text-4xl font-base uppercase">
