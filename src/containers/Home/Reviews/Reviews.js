@@ -38,6 +38,7 @@ const Reviews = () => {
 					containerClass="carousel-container"
 					itemClass="carousel-item-padding-40-px"
 					removeArrowOnDeviceType={['tablet', 'mobile', 'desktop']}
+					className="container"
 				>
 					{reviews.length ? (
 						reviews.map((singleReview) => (
