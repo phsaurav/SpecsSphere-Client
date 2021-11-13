@@ -47,18 +47,20 @@ const Header = () => {
 								>
 									All Sunglasses
 								</NavLink>
-								<NavLink
-									to="/dashboard"
-									className="font-base text-black  pb-2 link link-underline link-underline-black"
-									activeStyle={{
-										color: '#000000',
-										borderBottom: '2px solid black',
-										fontWeight: '500',
-										pointerEvents: 'none',
-									}}
-								>
-									Dashboard
-								</NavLink>
+								{user.displayName && (
+									<NavLink
+										to="/dashboard"
+										className="font-base text-black  pb-2 link link-underline link-underline-black"
+										activeStyle={{
+											color: '#000000',
+											borderBottom: '2px solid black',
+											fontWeight: '500',
+											pointerEvents: 'none',
+										}}
+									>
+										Dashboard
+									</NavLink>
+								)}
 							</div>
 							<div>
 								<div>

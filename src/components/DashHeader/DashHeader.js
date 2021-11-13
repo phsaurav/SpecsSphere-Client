@@ -7,7 +7,7 @@ import './DashHeader.css';
 import useAuth from '../../hooks/useAuth';
 
 const DashHeader = () => {
-	const { user, logOut } = useAuth();
+	const { user, logOut, admin } = useAuth();
 	const [isOpen, setIsOpen] = useState(false);
 	return (
 		<div className="md:min-h-screen md:w-96">
@@ -30,23 +30,25 @@ const DashHeader = () => {
 										<div className=" hidden md:flex items-center justify-center mb-5">
 											<div className="h-24 mb-5">
 												<Link to="/mytours">
-													<div className="flex w-36 items-center justify-center h-8 mr-2">
+													<div className="flex w-44 items-center justify-center h-8 mr-2">
 														<div className="w-5 h-5 m-1 text-xl border-bra mt-4">
 															<BiUser className="text-white text-xl h-5 w-5" />
 														</div>
 														<p className="font-semibold text-white  py-1 transition duration-300 ease-in-out text-left pl-1 mt-4">
 															{user.displayName.toUpperCase()
 																.length > 12
-																? user.displayName.split(
-																		' '
-																  )[0]
+																? user.displayName
+																		.split(
+																			' '
+																		)[0]
+																		.toUpperCase()
 																: user.displayName.toUpperCase()}
 														</p>
 													</div>
 												</Link>
 												<div
 													onClick={logOut}
-													className="cursor-default font-semibold text-brand-1 px-8 py-2 transition duration-300 ease-in-out hover:bg-brand-1 hover:text-white bg-white mb-10 uppercase border-2 shadow-xl mt-5 border-white"
+													className="cursor-default font-semibold text-brand-1 px-2 py-2 transition duration-300 ease-in-out hover:bg-brand-1 hover:text-white bg-white mb-10 uppercase border-2 shadow-xl mt-5 border-white"
 												>
 													Sign Out
 												</div>
@@ -93,61 +95,146 @@ const DashHeader = () => {
 										</NavLink>
 									</div>
 									{user.displayName && (
-										<div className="hidden md:flex flex-col md:w-80 xl:w-96 uppercase text-sm lg:text-base">
-											<NavLink
-												to="/dashboard"
-												className="font-base text-bluegray-300 transition duration-500 ease-in-out hover:text-white link hover:font-semibold link-underline px-3 lg:px-6 py-4 border-b border-white text-sm"
-												activeStyle={{
-													backgroundColor: '#ececec',
-													color: '#1e1e1e',
-													fontWeight: '600',
-													backgroundSize: '100% 0px',
-												}}
-											>
-												Dash Board
-											</NavLink>
-											<NavLink
-												to="/dashboard/myorders"
-												className="font-base text-brand-1transition duration-500 ease-in-out hover:text-black link hover:font-bold link-underline-black px-3 lg:px-6 py-4 border-b border-white bg-brand-11 text-sm"
-												activeStyle={{
-													backgroundColor: '#FFFFFF',
-													color: '#000000',
-													fontWeight: '600',
-													backgroundSize: '100% 0px',
-												}}
-											>
-												My Orders
-											</NavLink>
-											<NavLink
-												to="/dashboard/pay"
-												className="font-base text-brand-1transition duration-500 ease-in-out hover:text-black link hover:font-bold link-underline-black px-3 lg:px-6 py-4 border-b border-white bg-brand-11 text-sm"
-												style={{
-													fontWeight: '500',
-												}}
-												activeStyle={{
-													backgroundColor: '#FFFFFF',
-													color: '#000000',
-													fontWeight: '600',
-													backgroundSize: '100% 0px',
-												}}
-											>
-												Pay
-											</NavLink>
-											<NavLink
-												to="/dashboard/addreview"
-												className="font-base text-brand-1transition duration-500 ease-in-out hover:text-black link hover:font-bold link-underline-black px-3 lg:px-6 py-4 border-b border-white bg-brand-11 text-sm"
-												style={{
-													fontWeight: '500',
-												}}
-												activeStyle={{
-													backgroundColor: '#FFFFFF',
-													color: '#000000',
-													fontWeight: '600',
-													backgroundSize: '100% 0px',
-												}}
-											>
-												Add Review
-											</NavLink>
+										<div>
+											<div className="hidden md:flex flex-col md:w-80 xl:w-96 uppercase text-sm lg:text-base">
+												<NavLink
+													to="/dashboard"
+													className="font-base text-bluegray-300 transition duration-500 ease-in-out hover:text-white link hover:font-semibold link-underline px-3 lg:px-6 py-4 border-b border-white text-sm"
+													activeStyle={{
+														backgroundColor:
+															'#ececec',
+														color: '#1e1e1e',
+														fontWeight: '600',
+														backgroundSize:
+															'100% 0px',
+													}}
+												>
+													Dash Board
+												</NavLink>
+											</div>
+											{!admin ? (
+												<div className="hidden md:flex flex-col md:w-80 xl:w-96 uppercase text-sm lg:text-base">
+													<NavLink
+														to="/dashboard/myorders"
+														className="font-base text-brand-1transition duration-500 ease-in-out hover:text-black link hover:font-bold link-underline-black px-3 lg:px-6 py-4 border-b border-white bg-brand-11 text-sm"
+														activeStyle={{
+															backgroundColor:
+																'#FFFFFF',
+															color: '#000000',
+															fontWeight: '600',
+															backgroundSize:
+																'100% 0px',
+														}}
+													>
+														My Orders
+													</NavLink>
+													<NavLink
+														to="/dashboard/pay"
+														className="font-base text-brand-1transition duration-500 ease-in-out hover:text-black link hover:font-bold link-underline-black px-3 lg:px-6 py-4 border-b border-white bg-brand-11 text-sm"
+														style={{
+															fontWeight: '500',
+														}}
+														activeStyle={{
+															backgroundColor:
+																'#FFFFFF',
+															color: '#000000',
+															fontWeight: '600',
+															backgroundSize:
+																'100% 0px',
+														}}
+													>
+														Pay
+													</NavLink>
+													<NavLink
+														to="/dashboard/addreview"
+														className="font-base text-brand-1transition duration-500 ease-in-out hover:text-black link hover:font-bold link-underline-black px-3 lg:px-6 py-4 border-b border-white bg-brand-11 text-sm"
+														style={{
+															fontWeight: '500',
+														}}
+														activeStyle={{
+															backgroundColor:
+																'#FFFFFF',
+															color: '#000000',
+															fontWeight: '600',
+															backgroundSize:
+																'100% 0px',
+														}}
+													>
+														Add Review
+													</NavLink>
+												</div>
+											) : (
+												<div className="hidden md:flex flex-col md:w-80 xl:w-96 uppercase text-sm lg:text-base">
+													<NavLink
+														to="/dashboard/allorders"
+														className="font-base text-brand-1transition duration-500 ease-in-out hover:text-black link hover:font-bold link-underline-black px-3 lg:px-6 py-4 border-b border-white bg-brand-11 text-sm"
+														style={{
+															fontWeight: '500',
+														}}
+														activeStyle={{
+															backgroundColor:
+																'#FFFFFF',
+															color: '#000000',
+															fontWeight: '600',
+															backgroundSize:
+																'100% 0px',
+														}}
+													>
+														Manage All Orders
+													</NavLink>
+													<NavLink
+														to="/dashboard/addadmin"
+														className="font-base text-brand-1transition duration-500 ease-in-out hover:text-black link hover:font-bold link-underline-black px-3 lg:px-6 py-4 border-b border-white bg-brand-11 text-sm"
+														style={{
+															fontWeight: '500',
+														}}
+														activeStyle={{
+															backgroundColor:
+																'#FFFFFF',
+															color: '#000000',
+															fontWeight: '600',
+															backgroundSize:
+																'100% 0px',
+														}}
+													>
+														Make Admin
+													</NavLink>
+													<NavLink
+														to="/dashboard/addproduct"
+														className="font-base text-brand-1transition duration-500 ease-in-out hover:text-black link hover:font-bold link-underline-black px-3 lg:px-6 py-4 border-b border-white bg-brand-11 text-sm"
+														style={{
+															fontWeight: '500',
+														}}
+														activeStyle={{
+															backgroundColor:
+																'#FFFFFF',
+															color: '#000000',
+															fontWeight: '600',
+															backgroundSize:
+																'100% 0px',
+														}}
+													>
+														Add a Product
+													</NavLink>
+													<NavLink
+														to="/dashboard/manageproduct"
+														className="font-base text-brand-1transition duration-500 ease-in-out hover:text-black link hover:font-bold link-underline-black px-3 lg:px-6 py-4 border-b border-white bg-brand-11 text-sm"
+														style={{
+															fontWeight: '500',
+														}}
+														activeStyle={{
+															backgroundColor:
+																'#FFFFFF',
+															color: '#000000',
+															fontWeight: '600',
+															backgroundSize:
+																'100% 0px',
+														}}
+													>
+														Manage All Products
+													</NavLink>
+												</div>
+											)}
 										</div>
 									)}
 								</div>

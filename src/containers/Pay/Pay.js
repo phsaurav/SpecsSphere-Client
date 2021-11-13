@@ -15,7 +15,7 @@ const Pay = () => {
 					<div className="flex justify-center">
 						<div className=" bg-brand-1 h-px w-20 mb-10"></div>
 					</div>
-					<p className=" mt-10 mb-2 text-4xl font-base border-2 border-black py-2 container mx-auto uppercase">
+					<p className="  w-5/6 mt-10 mb-2 text-4xl font-base border-2 border-black py-2 container mx-auto uppercase">
 						Payment system coming soon
 					</p>
 				</div>

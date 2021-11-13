@@ -7,7 +7,6 @@ import { BsGoogle } from 'react-icons/bs';
 import useAuth from '../../hooks/useAuth';
 import { useForm } from 'react-hook-form';
 
-
 const Register = () => {
 	const {
 		auth,
@@ -43,7 +42,7 @@ const Register = () => {
 
 	const onSubmit = (data) => {
 		console.log(data);
-		if (data?.password?.length <= 6) {
+		if (data?.password?.length <= 5) {
 			setError('Password Must be atleast 6 character long');
 			return;
 		}
@@ -101,6 +100,7 @@ const Register = () => {
 
 				<form className="mt-4 " onSubmit={handleSubmit(onSubmit)}>
 					<input
+						required
 						type="text"
 						placeholder="Name"
 						className="text-sm w-80 bg-gray-100 flex flex-row justify-between h-12 pl-5 rounded-lg my-5"
@@ -108,13 +108,15 @@ const Register = () => {
 						{...register('name')}
 					/>
 					<input
-						type="text"
+						required
+						type="email"
 						placeholder="Email"
 						className="text-sm w-80 bg-gray-100 flex flex-row justify-between h-12 pl-5 rounded-lg my-5"
 						style={{ outline: 'none' }}
 						{...register('email')}
 					/>
 					<input
+						required
 						type="password"
 						placeholder="Password"
 						className="text-sm w-80 bg-gray-100 flex flex-row justify-between h-12 pl-5 rounded-lg my-5"
@@ -122,6 +124,7 @@ const Register = () => {
 						{...register('password')}
 					/>
 					<input
+						required
 						type="password"
 						placeholder="Confirm Password"
 						className="text-sm w-80 bg-gray-100 flex flex-row justify-between h-12 pl-5 rounded-lg my-5"
@@ -136,7 +139,7 @@ const Register = () => {
 						<option value="male">Male</option>
 						<option value="female">Female</option>
 					</select>
-					<button className="text-white py-2 px-7 w-80 rounded-md bg-brand-1">
+					<button className="text-white py-2 px-7 w-80 rounded-md bg-brand-1 hover:bg-white border-2 border-brand-1 hover:text-black">
 						Sign Up
 					</button>
 					<br />

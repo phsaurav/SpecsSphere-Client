@@ -70,20 +70,22 @@ const Login = () => {
 
 				<form className="mt-4 " onSubmit={handleSubmit(onSubmit)}>
 					<input
-						type="text"
+						required
+						type="email"
 						placeholder="Email"
 						className="text-sm w-80 bg-gray-100 flex flex-row justify-between h-12 pl-5 rounded-lg my-5"
 						style={{ outline: 'none' }}
 						{...register('email')}
 					/>
 					<input
+						required
 						type="password"
 						placeholder="Password"
 						className="text-sm w-80 bg-gray-100 flex flex-row justify-between h-12 pl-5 rounded-lg my-5"
 						style={{ outline: 'none' }}
 						{...register('password')}
 					/>
-					<button className="text-white py-2 px-7 w-80 rounded-md bg-brand-1">
+					<button className="text-white py-2 px-7 w-80 rounded-md bg-brand-1 hover:bg-white border-2 border-brand-1 hover:text-black">
 						Log In
 					</button>
 					<br />

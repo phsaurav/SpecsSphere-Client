@@ -3,9 +3,9 @@ import { CgClose } from 'react-icons/cg';
 import Rating from 'react-rating';
 import { AiFillStar } from 'react-icons/ai';
 import { AiOutlineStar } from 'react-icons/ai';
-import useProduct from '../../hooks/useProduct';
+import useProduct from '../../../hooks/useProduct';
 
-const OrderCard = ({ order, setFlag, statusFlag, setStatusFlag }) => {
+const AllOrderCard = ({ order, setFlag, stateFlag, setStateFlag }) => {
 	const { _id, name, email, number, img, productId } = order;
 	const [product] = useProduct(productId);
 	const handleDelete = () => {
@@ -18,6 +18,20 @@ const OrderCard = ({ order, setFlag, statusFlag, setStatusFlag }) => {
 					setFlag(_id);
 				});
 		}
+	};
+	const handleStatus = () => {
+		fetch(`http://localhost:5000/status/${_id}`, {
+			method: 'PUT',
+			headers: {
+				'content-type': 'application/json',
+			},
+		})
+			.then((res) => res.json())
+			.then((data) => {
+				if (data.modifiedCount > 0) {
+					setStateFlag(stateFlag + 1);
+				}
+			});
 	};
 	return (
 		<div>
@@ -73,11 +87,14 @@ const OrderCard = ({ order, setFlag, statusFlag, setStatusFlag }) => {
 						</div>
 						<div className="my-5 flex justify-center ml-3">
 							{order.status === 'pending' ? (
-								<button className=" border-brand-9   border-2 rounded-lg mr-5 p-1 text-brand-9  text-xs uppercase">
+								<button
+									className=" border-brand-9 transition duration-500 ease-in-out hover:bg-brand-9 hover:text-white  border-2 rounded-lg mr-5 p-1 text-brand-9  text-xs uppercase"
+									onClick={handleStatus}
+								>
 									{order.status}
 								</button>
 							) : (
-								<button className=" border-green-400   border-2 rounded-lg mr-5 p-1 text-green-500 text-xs uppercase">
+								<button className=" border-green-400 border-2  text-green-400 rounded-lg mr-5 p-1 text-b  text-xs uppercase">
 									{order.status}
 								</button>
 							)}
@@ -95,4 +112,4 @@ const OrderCard = ({ order, setFlag, statusFlag, setStatusFlag }) => {
 	);
 };
 
-export default OrderCard;
+export default AllOrderCard;

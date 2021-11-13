@@ -60,11 +60,17 @@ const useFirebase = () => {
 		}).then();
 	};
 
-	// useEffect(() => {
-	// 	fetch(`http://localhost:5000/users/${user?.email}`)
-	// 		.then((res) => res.json())
-	// 		.then((data) => setAdmin(data.admin));
-	// }, [user?.email]);
+	useEffect(() => {
+		fetch(`http://localhost:5000/users/${user?.email}`)
+			.then((res) => res.json())
+			.then((data) => {
+				setAdmin(data.admin);
+				const newAdmin = data.admin;
+				if (user.email) {
+					sessionStorage.setItem('admin', newAdmin.toString());
+				}
+			});
+	}, [user?.email]);
 
 	useEffect(() => {
 		onAuthStateChanged(auth, (user) => {

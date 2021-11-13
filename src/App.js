@@ -16,8 +16,16 @@ import Pay from './containers/Pay/Pay';
 import Register from './containers/Register/Register';
 import Order from './containers/Home/Order/Order';
 import AddReview from './containers/AddReview/AddReview';
+import AddAdmin from './containers/AddAdmin/AddAdmin';
+import AllOrders from './containers/AllOrders/AllOrders';
+import useAuth from './hooks/useAuth';
+import useFirebase from './hooks/useFirebase';
+import AdminRoute from './components/AdminRoute/AdminRoute';
+import AddProduct from './containers/AddProduct/AddProduct';
+import ManageProduct from './containers/ManageProduct/ManageProduct';
 
 function App() {
+	const { admin } = useFirebase();
 	return (
 		<div className="App">
 			<AuthProvider>
@@ -39,20 +47,48 @@ function App() {
 							<Explore></Explore>
 						</Route>
 						<PrivateRoute path="/dashboard" exact>
-							<Redirect to="/dashboard/myorders"></Redirect>
+							{admin ? (
+								<Redirect to="/dashboard/allorders"></Redirect>
+							) : (
+								<Redirect to="/dashboard/myorders"></Redirect>
+							)}
 						</PrivateRoute>
 						<PrivateRoute path="/order/:id">
 							<Order></Order>
 						</PrivateRoute>
 						<PrivateRoute path="/dashboard/myorders">
-							<MyOrders></MyOrders>
+							{admin ? (
+								<Redirect to="/dashboard/allorders"></Redirect>
+							) : (
+								<MyOrders></MyOrders>
+							)}
 						</PrivateRoute>
 						<PrivateRoute path="/dashboard/pay">
-							<Pay></Pay>
+							{admin ? (
+								<Redirect to="/dashboard/allorders"></Redirect>
+							) : (
+								<Pay></Pay>
+							)}
 						</PrivateRoute>
 						<PrivateRoute path="/dashboard/addreview">
-							<AddReview></AddReview>
+							{admin ? (
+								<Redirect to="/dashboard/allorders"></Redirect>
+							) : (
+								<AddReview></AddReview>
+							)}
 						</PrivateRoute>
+						<AdminRoute path="/dashboard/addadmin">
+							<AddAdmin></AddAdmin>
+						</AdminRoute>
+						<AdminRoute path="/dashboard/allorders">
+							<AllOrders></AllOrders>
+						</AdminRoute>
+						<AdminRoute path="/dashboard/addproduct">
+							<AddProduct></AddProduct>
+						</AdminRoute>
+						<AdminRoute path="/dashboard/manageproduct">
+							<ManageProduct></ManageProduct>
+						</AdminRoute>
 						<Route>
 							<NotFound></NotFound>
 						</Route>
