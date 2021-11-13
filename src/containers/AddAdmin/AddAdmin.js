@@ -1,5 +1,4 @@
 import React from 'react';
-import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import DashHeader from '../../components/DashHeader/DashHeader';
 import Footer from '../../components/Footer/Footer';
@@ -7,7 +6,6 @@ import useAuth from '../../hooks/useAuth';
 
 const AddAdmin = () => {
 	const { handleSubmit, register, reset } = useForm();
-	const [success, setSuccess] = useState(false);
 	const { token } = useAuth();
 
 	const onSubmit = (data) => {
@@ -27,7 +25,6 @@ const AddAdmin = () => {
 			.then((data) => {
 				if (data.modifiedCount) {
 					alert('User Added as Admin.');
-					setSuccess(true);
 					reset();
 				}
 			});

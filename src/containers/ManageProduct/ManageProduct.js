@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import DashHeader from '../../components/DashHeader/DashHeader';
 import Footer from '../../components/Footer/Footer';
-import useProducts from '../../hooks/useProducts';
 import ManageCard from './ManageCard/ManageCard';
 
 const ManageProduct = () => {

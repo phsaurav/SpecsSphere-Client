@@ -1,10 +1,10 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Redirect, Route } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 import './AdminRoute.css';
 
 const AdminRoute = ({ children, ...rest }) => {
-	const { user, isLoading, check, setCheck } = useAuth();
+	const { user, isLoading } = useAuth();
 	const admin = sessionStorage.getItem('admin');
 	if (isLoading) {
 		return (

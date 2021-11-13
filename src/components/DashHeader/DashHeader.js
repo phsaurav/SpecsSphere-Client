@@ -183,7 +183,7 @@ const DashHeader = () => {
 														Manage All Orders
 													</NavLink>
 													<NavLink
-														to="/dashboard/addadmin"
+														to="/dashboard/manageproduct"
 														className="font-base text-brand-1transition duration-500 ease-in-out hover:text-black link hover:font-bold link-underline-black px-3 lg:px-6 py-4 border-b border-white bg-brand-11 text-sm"
 														style={{
 															fontWeight: '500',
@@ -197,7 +197,7 @@ const DashHeader = () => {
 																'100% 0px',
 														}}
 													>
-														Make Admin
+														Manage All Products
 													</NavLink>
 													<NavLink
 														to="/dashboard/addproduct"
@@ -217,7 +217,7 @@ const DashHeader = () => {
 														Add a Product
 													</NavLink>
 													<NavLink
-														to="/dashboard/manageproduct"
+														to="/dashboard/addadmin"
 														className="font-base text-brand-1transition duration-500 ease-in-out hover:text-black link hover:font-bold link-underline-black px-3 lg:px-6 py-4 border-b border-white bg-brand-11 text-sm"
 														style={{
 															fontWeight: '500',
@@ -231,7 +231,7 @@ const DashHeader = () => {
 																'100% 0px',
 														}}
 													>
-														Manage All Products
+														Make Admin
 													</NavLink>
 												</div>
 											)}
@@ -244,7 +244,7 @@ const DashHeader = () => {
 								<button
 									onClick={() => setIsOpen(!isOpen)}
 									type="button"
-									className="bg-brand-2 inline-flex items-center justify-center p-2 rounded-xl text-bg-brand-1 hover:text-brand-2 hover:bg-bg-brand-1 focus:outline-none "
+									className="bg-white inline-flex items-center justify-center p-1 rounded-xl text-brand-1 transition duration-300 ease-in-out hover:text-white border-2 border-white hover:bg-brand-1 focus:outline-none mt-2 "
 									aria-controls="mobile-menu"
 									aria-expanded="false"
 								>
@@ -302,52 +302,165 @@ const DashHeader = () => {
 							<div className="md:hidden " id="mobile-menu">
 								<div
 									ref={ref}
-									className=" pt-2 space-y-2  text-center mx-auto bg-brand-2"
+									className=" pt-2   text-center mx-auto bg-brand-1"
 								>
 									<NavLink
 										to="/home"
-										className="font-base text-bg-brand-1 hover:bg-bg-brand-1 hover:text-brand-2 block px-3 py-2  text-base w-full "
+										className="font-semibold text-white hover:bg-white hover:text-brand-2 block px-3   text-base w-full border-b border-brand-2 py-3"
+										activeStyle={{
+											backgroundColor: '#FFFFFF',
+											color: '#000000',
+											fontWeight: '600',
+											backgroundSize: '100% 0px',
+										}}
 									>
 										Home
 									</NavLink>
 									<NavLink
 										to="/explore"
-										className="font-base text-bg-brand-1 hover:bg-bg-brand-1 hover:text-brand-2 block px-3 py-2  text-base w-full"
+										className="font-semibold text-white hover:bg-white hover:text-brand-2 block px-3  text-base w-full border-b border-brand-2 py-3"
+										activeStyle={{
+											backgroundColor: '#FFFFFF',
+											color: '#000000',
+											fontWeight: '600',
+											backgroundSize: '100% 0px',
+										}}
 									>
-										All Products
+										All Sunglasses
 									</NavLink>
 
 									{user.displayName ? (
-										<div className="flex items-center flex-col">
+										<div className="pt-2   text-center mx-auto bg-brand-1">
 											<NavLink
-												to="/addpackage"
-												className="font-base text-bg-brand-1 hover:bg-bg-brand-1 hover:text-brand-2 block px-3 py-2  text-base w-full"
+												to="/dashboard"
+												className="font-semibold text-brand-1 hover:bg-white hover:text-brand-2 block px-3 text-base w-full border-b border-brand-2 py-3 bg-brand-11"
+												activeStyle={{
+													backgroundColor: '#FFFFFF',
+													color: '#000000',
+													fontWeight: '700',
+													backgroundSize: '100% 0px',
+												}}
 											>
-												Dash Board
+												Dashboard
 											</NavLink>
-											<NavLink
-												to="/alltours"
-												className="font-base text-bg-brand-1 hover:bg-bg-brand-1 hover:text-brand-2 block px-3 py-2  text-base w-full"
-											>
-												All Tours
-											</NavLink>
-											<NavLink
-												to="/mytours"
-												className="font-base text-bg-brand-1 hover:bg-bg-brand-1 hover:text-brand-2 block px-3 py-2  text-base w-full"
-											>
-												My Tours
-											</NavLink>
+											{!admin ? (
+												<div className="flex items-center flex-col">
+													<NavLink
+														to="/dashboard/myorders"
+														className="font-semibold text-brand-1 hover:bg-white hover:text-brand-2 block px-3 text-base w-full border-b border-brand-2 py-3 bg-white"
+														activeStyle={{
+															backgroundColor:
+																'#A1A1AA',
+															color: '#000000',
+															fontWeight: '600',
+															backgroundSize:
+																'100% 0px',
+														}}
+													>
+														My Orders
+													</NavLink>
+													<NavLink
+														to="/dashboard/pay"
+														className="font-semibold text-brand-1 hover:bg-white hover:text-brand-2 block px-3 text-base w-full border-b border-brand-2 py-3 bg-white"
+														activeStyle={{
+															backgroundColor:
+																'#A1A1AA',
+															color: '#000000',
+															fontWeight: '600',
+															backgroundSize:
+																'100% 0px',
+														}}
+													>
+														Pay
+													</NavLink>
+													<NavLink
+														to="/dashboard/addreview"
+														className="font-semibold text-brand-1 hover:bg-white hover:text-brand-2 block px-3 text-base w-full border-b border-brand-2 py-3 bg-white"
+														activeStyle={{
+															backgroundColor:
+																'#A1A1AA',
+															color: '#000000',
+															fontWeight: '600',
+															backgroundSize:
+																'100% 0px',
+														}}
+													>
+														Add Review
+													</NavLink>
+												</div>
+											) : (
+												<div className="flex items-center flex-col">
+													<NavLink
+														to="/dashboard/allorders"
+														className="font-semibold text-brand-1 hover:bg-white hover:text-brand-2 block px-3 text-base w-full border-b border-brand-2 py-3 bg-white"
+														activeStyle={{
+															backgroundColor:
+																'#A1A1AA',
+															color: '#000000',
+															fontWeight: '600',
+															backgroundSize:
+																'100% 0px',
+														}}
+													>
+														Manage All Orders
+													</NavLink>
+
+													<NavLink
+														to="/dashboard/manageproduct"
+														className="font-semibold text-brand-1 hover:bg-white hover:text-brand-2 block px-3 text-base w-full border-b border-brand-2 py-3 bg-white"
+														activeStyle={{
+															backgroundColor:
+																'#A1A1AA',
+															color: '#000000',
+															fontWeight: '600',
+															backgroundSize:
+																'100% 0px',
+														}}
+													>
+														Manage All Products
+													</NavLink>
+													<NavLink
+														to="/dashboard/addproduct"
+														className="font-semibold text-brand-1 hover:bg-white hover:text-brand-2 block px-3 text-base w-full border-b border-brand-2 py-3 bg-white"
+														activeStyle={{
+															backgroundColor:
+																'#A1A1AA',
+															color: '#000000',
+															fontWeight: '600',
+															backgroundSize:
+																'100% 0px',
+														}}
+													>
+														Add a Product
+													</NavLink>
+													<NavLink
+														to="/dashboard/addadmin"
+														className="font-semibold text-brand-1 hover:bg-white hover:text-brand-2 block px-3 text-base w-full border-b border-brand-2 py-3 bg-white"
+														activeStyle={{
+															backgroundColor:
+																'#A1A1AA',
+															color: '#000000',
+															fontWeight: '600',
+															backgroundSize:
+																'100% 0px',
+														}}
+													>
+														Make Admin
+													</NavLink>
+												</div>
+											)}
+
 											<button
 												onClick={logOut}
-												className="font-base text-bg-brand-1 hover:bg-bg-brand-1 hover:text-brand-2 block px-3 py-2  text-base w-full"
+												className="font-semibold text-white hover:bg-white hover:text-brand-2 block px-3  text-base w-full border-b border-brand-2 py-3"
 											>
 												Log Out
 											</button>
-											<div className="flex items-center justify-center h-8 mr-1 py-6 bg-brand-2 w-full">
-												<div className="w-3 h-3 m-1 text-xl border-bra mt-4">
-													<BiUser className="text-black text-xl h-4 w-4" />
+											<div className="flex items-center justify-center h-8  py-6 bg-brand-1 w-full mr-5">
+												<div className="w-5 h-5 m-1 text-xl border-bra ">
+													<BiUser className="text-white text-xl h-5 w-5" />
 												</div>
-												<p className="font-base text-bg-brand-1  py-1 transition duration-300 ease-in-out text-left pl-1 text-lg uppercase">
+												<p className="font-semibold text-white  py-1 transition duration-300 ease-in-out text-left pl-1 text-lg uppercase">
 													{user.displayName}
 												</p>
 											</div>
@@ -357,7 +470,7 @@ const DashHeader = () => {
 											{' '}
 											<NavLink
 												to="/login"
-												className="font-base text-bg-brand-1 hover:bg-bg-brand-1 hover:text-brand-2 block px-3 py-2  text-base w-full"
+												className="font-semibold text-white hover:bg-white hover:text-brand-2 block px-3 py-2  text-base w-full uppercase"
 											>
 												Login
 											</NavLink>

@@ -18,7 +18,6 @@ import Order from './containers/Home/Order/Order';
 import AddReview from './containers/AddReview/AddReview';
 import AddAdmin from './containers/AddAdmin/AddAdmin';
 import AllOrders from './containers/AllOrders/AllOrders';
-import useAuth from './hooks/useAuth';
 import useFirebase from './hooks/useFirebase';
 import AdminRoute from './components/AdminRoute/AdminRoute';
 import AddProduct from './containers/AddProduct/AddProduct';

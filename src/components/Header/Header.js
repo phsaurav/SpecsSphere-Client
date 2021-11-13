@@ -14,7 +14,7 @@ const Header = () => {
 			<nav className="relative z-20">
 				<div className="container mx-auto">
 					<div className="text-black">
-						<div className="flex  items-center justify-between ">
+						<div className="flex ml-5 md:ml-0 items-center justify-between ">
 							<NavLink to="/home">
 								<img
 									className="h-7 md:mb-4 my-4"
@@ -114,7 +114,7 @@ const Header = () => {
 							<button
 								onClick={() => setIsOpen(!isOpen)}
 								type="button"
-								className="bg-brand-2 inline-flex items-center justify-center p-2 rounded-xl text-white hover:text-brand-2 hover:bg-white focus:outline-none "
+								className="bg-brand-1 inline-flex items-center justify-center p-1 rounded-xl text-white transition duration-300 ease-in-out hover:text-brand-1 border-2 border-brand-1 hover:bg-white focus:outline-none "
 								aria-controls="mobile-menu"
 								aria-expanded="false"
 							>
@@ -170,50 +170,57 @@ const Header = () => {
 						<div className="md:hidden " id="mobile-menu">
 							<div
 								ref={ref}
-								className=" pt-2 space-y-2  text-center mx-auto bg-brand-2"
+								className=" pt-2   text-center mx-auto bg-brand-1"
 							>
 								<NavLink
 									to="/home"
-									className="font-semibold text-white hover:bg-white hover:text-brand-2 block px-3 py-2  text-base w-full "
+									className="font-semibold text-white hover:bg-white hover:text-brand-2 block px-3   text-base w-full border-b border-brand-2 py-3"
+									activeStyle={{
+										backgroundColor: '#FFFFFF',
+										color: '#000000',
+										fontWeight: '600',
+										backgroundSize: '100% 0px',
+									}}
 								>
 									Home
 								</NavLink>
 								<NavLink
-									to="/about"
-									className="font-semibold text-white hover:bg-white hover:text-brand-2 block px-3 py-2  text-base w-full"
+									to="/explore"
+									className="font-semibold text-white hover:bg-white hover:text-brand-2 block px-3  text-base w-full border-b border-brand-2 py-3"
+									activeStyle={{
+										backgroundColor: '#FFFFFF',
+										color: '#000000',
+										fontWeight: '600',
+										backgroundSize: '100% 0px',
+									}}
 								>
-									About Us
+									All Sunglasses
 								</NavLink>
 
 								{user.displayName ? (
 									<div className="flex items-center flex-col">
 										<NavLink
-											to="/addpackage"
-											className="font-semibold text-white hover:bg-white hover:text-brand-2 block px-3 py-2  text-base w-full"
+											to="/dashboard"
+											className="font-semibold text-white hover:bg-white hover:text-brand-2 block px-3 text-base w-full border-b border-brand-2 py-3"
+											activeStyle={{
+												backgroundColor: '#FFFFFF',
+												color: '#000000',
+												fontWeight: '600',
+												backgroundSize: '100% 0px',
+											}}
 										>
-											Add Package
+											Dashboard
 										</NavLink>
-										<NavLink
-											to="/alltours"
-											className="font-semibold text-white hover:bg-white hover:text-brand-2 block px-3 py-2  text-base w-full"
-										>
-											All Tours
-										</NavLink>
-										<NavLink
-											to="/mytours"
-											className="font-semibold text-white hover:bg-white hover:text-brand-2 block px-3 py-2  text-base w-full"
-										>
-											My Tours
-										</NavLink>
+
 										<button
 											onClick={logOut}
-											className="font-semibold text-white hover:bg-white hover:text-brand-2 block px-3 py-2  text-base w-full"
+											className="font-semibold text-white hover:bg-white hover:text-brand-2 block px-3  text-base w-full border-b border-brand-2 py-3"
 										>
 											Log Out
 										</button>
-										<div className="flex items-center justify-center h-8 mr-1 py-6 bg-brand-2 w-full">
-											<div className="w-3 h-3 m-1 text-xl border-bra mt-4">
-												<BiUser className="text-black text-xl h-4 w-4" />
+										<div className="flex items-center justify-center h-8  py-6 bg-brand-1 w-full mr-5">
+											<div className="w-5 h-5 m-1 text-xl border-bra ">
+												<BiUser className="text-white text-xl h-5 w-5" />
 											</div>
 											<p className="font-semibold text-white  py-1 transition duration-300 ease-in-out text-left pl-1 text-lg uppercase">
 												{user.displayName}
@@ -225,7 +232,7 @@ const Header = () => {
 										{' '}
 										<NavLink
 											to="/login"
-											className="font-semibold text-white hover:bg-white hover:text-brand-2 block px-3 py-2  text-base w-full"
+											className="font-semibold text-white hover:bg-white hover:text-brand-2 block px-3 py-2  text-base w-full uppercase"
 										>
 											Login
 										</NavLink>
