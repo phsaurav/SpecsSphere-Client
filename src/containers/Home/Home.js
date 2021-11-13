@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Footer from '../../components/Footer/Footer';
 import Header from '../../components/Header/Header';
 import Hero from '../../components/Hero/Hero';
@@ -22,6 +23,36 @@ const Home = () => {
 					</div>
 					<BestSellers></BestSellers>
 					<Reviews></Reviews>
+					<div
+						className="w-screen h-72 bg-gray-600  bg-no-repeat"
+						style={{
+							backgroundBlendMode: 'multiply',
+							backgroundSize: 'cover',
+							backgroundPosition: 'bottom',
+							backgroundImage: `url(https://i.ibb.co/YR5K2ZP/sai-kiran-anagani-83z-Rh-Eh-FMfo-unsplash.jpg)`,
+							width: '100%',
+						}}
+					>
+						<div className=" p-10 pt-10  pb-20  flex  flex-col  flex-wrap  justify-center  content-center">
+							<div className=" my-1 mt-5 tracking-wide  text-3xl font-semibold  text-white  antialiased  text-center">
+								Join The Exclusive Club
+							</div>
+							<div className=" my-1 tracking-wider p-0 font-light text-xl  text-white  antialiased  text-center">
+								See our latest collections & exclusive offers
+								before the crowd!
+							</div>
+							<div className=" mt-3 w-96 mx-auto  flex  flex-row  flex-wrap">
+								<input
+									type="text"
+									className=" text-gray-600  w-2/3  p-2 px-5  rounded-l-lg"
+									placeholder="Your Email"
+								/>
+								<div className=" p-2  w-1/3  bg-brand-9  rounded-r-lg  text-white hover: ">
+									Subscribe
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
 				<Footer></Footer>
 			</div>

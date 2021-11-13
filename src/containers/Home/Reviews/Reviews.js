@@ -26,7 +26,7 @@ const Reviews = () => {
 	};
 	return (
 		<div className="cursor-default ">
-			<div className="h-full w-full mx-auto bg-gray-200">
+			<div className="h-full w-full mx-auto py-20 bg-gray-200">
 				<Carousel
 					swipeable={true}
 					draggable={true}
