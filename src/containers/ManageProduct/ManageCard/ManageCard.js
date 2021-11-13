@@ -5,14 +5,26 @@ import { AiOutlineStar } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 import { MdClose } from 'react-icons/md';
 
-const ManageCard = ({ product }) => {
+const ManageCard = ({ product, setFlag }) => {
 	const { _id, title, img, type, brand, price, star } = product;
+	const handleDelete = () => {
+		if (window.confirm('Are you Sure?')) {
+			fetch(`http://localhost:5000/products/${_id}`, {
+				method: 'DELETE',
+			})
+				.then((res) => res.text()) // or res.json()
+				.then((res) => {
+					setFlag(_id);
+				});
+		}
+	};
 	return (
 		<div>
 			<div className="flex flex-col w-96 bg-white overflow-hidden h-96 justify-center mx-auto transition duration-500 ease-in-out hover:shadow-md relative">
 				<button
 					type="button"
 					className="bg-white rounded-md p-1 inline-flex items-center justify-center  absolute top-0 right-0 hover:text-white hover:bg-brand-12 focus:outline-none focus:ring-2 focus:ring-inset  text-2xl focus:ring-indigo-500 text-brand-12 border-2 border-brand-12 z-20"
+					onClick={handleDelete}
 				>
 					<MdClose></MdClose>
 				</button>

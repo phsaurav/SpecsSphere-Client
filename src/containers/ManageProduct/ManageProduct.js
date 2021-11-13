@@ -1,11 +1,19 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import DashHeader from '../../components/DashHeader/DashHeader';
 import Footer from '../../components/Footer/Footer';
 import useProducts from '../../hooks/useProducts';
 import ManageCard from './ManageCard/ManageCard';
 
 const ManageProduct = () => {
-	const [products] = useProducts();
+	const [products, setProducts] = useState([]);
+	const [flag, setFlag] = useState(1);
+	useEffect(() => {
+		fetch(`http://localhost:5000/products`)
+			.then((res) => res.json())
+			.then((data) => {
+				setProducts(data);
+			});
+	}, [flag]);
 	return (
 		<div className="flex flex-col min-h-screen md:flex-row">
 			<div className=" md:w-80 xl:w-96">
@@ -27,6 +35,7 @@ const ManageProduct = () => {
 										<ManageCard
 											key={product._id}
 											product={product}
+											setFlag={setFlag}
 										></ManageCard>
 									))
 								) : (

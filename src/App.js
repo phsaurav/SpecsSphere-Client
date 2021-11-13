@@ -26,6 +26,7 @@ import ManageProduct from './containers/ManageProduct/ManageProduct';
 
 function App() {
 	const { admin } = useFirebase();
+	console.log(process.env);
 	return (
 		<div className="App">
 			<AuthProvider>
