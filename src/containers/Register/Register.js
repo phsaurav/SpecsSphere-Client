@@ -21,7 +21,7 @@ const Register = () => {
 	} = useAuth();
 	const location = useLocation();
 	const history = useHistory();
-	const redirect_uri = location.state?.from || '/home';
+	const redirect_uri = location.state?.from || '/dashboard';
 	const { handleSubmit, register } = useForm();
 
 	const handleGoogleSignIn = () => {
