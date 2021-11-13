@@ -10,7 +10,7 @@ const OrderCard = ({ order, setFlag, statusFlag, setStatusFlag }) => {
 	const [product] = useProduct(productId);
 	const handleDelete = () => {
 		if (window.confirm('Are you Sure?')) {
-			fetch(`http://localhost:5000/order/${_id}`, {
+			fetch(`https://specssphere.herokuapp.com/order/${_id}`, {
 				method: 'DELETE',
 			})
 				.then((res) => res.text()) // or res.json()

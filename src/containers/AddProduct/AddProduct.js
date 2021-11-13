@@ -12,7 +12,7 @@ const AddProduct = () => {
 		Object.keys(data).forEach((k) => data[k] === '' && delete data[k]);
 		console.log(data);
 
-		fetch('http://localhost:5000/products', {
+		fetch('https://specssphere.herokuapp.com/products', {
 			method: 'POST',
 			headers: {
 				'content-type': 'application/json',
@@ -91,7 +91,9 @@ const AddProduct = () => {
 									{...register('gender')}
 								>
 									<option value="male">Men Collection</option>
-									<option value="female">Female Collection</option>
+									<option value="female">
+										Female Collection
+									</option>
 								</select>
 								<select
 									className="text-sm w-96 bg-gray-100 flex flex-row justify-between h-12 pl-5 rounded-lg my-2 pr-5"

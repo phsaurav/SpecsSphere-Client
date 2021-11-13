@@ -13,7 +13,7 @@ const AddReview = () => {
 		data.img = user.photoURL;
 		data.email = user.email;
 
-		fetch('http://localhost:5000/review', {
+		fetch('https://specssphere.herokuapp.com/review', {
 			method: 'POST',
 			headers: {
 				'content-type': 'application/json',

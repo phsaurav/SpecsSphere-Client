@@ -12,7 +12,7 @@ const AllOrders = () => {
 	const [flag, setFlag] = useState(1);
 	const [stateFlag, setStateFlag] = useState(1);
 	useEffect(() => {
-		fetch(`http://localhost:5000/order`)
+		fetch(`https://specssphere.herokuapp.com/order`)
 			.then((res) => res.json())
 			.then((data) => {
 				setOrders(data);

@@ -10,13 +10,12 @@ const AddAdmin = () => {
 	const [success, setSuccess] = useState(false);
 	const { token } = useAuth();
 
-
 	const onSubmit = (data) => {
 		const email = data.email;
 
 		const user = { email };
 		console.log(user);
-		fetch('http://localhost:5000/users/admin', {
+		fetch('https://specssphere.herokuapp.com/users/admin', {
 			method: 'PUT',
 			headers: {
 				authorization: `Bearer ${token}`,

@@ -26,7 +26,7 @@ const Order = () => {
 		data.productId = id;
 		data.img = user?.photoURL;
 		data.status = 'pending';
-		fetch('http://localhost:5000/order', {
+		fetch('https://specssphere.herokuapp.com/order', {
 			method: 'POST',
 			headers: {
 				'content-type': 'application/json',

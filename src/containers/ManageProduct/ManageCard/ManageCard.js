@@ -9,7 +9,7 @@ const ManageCard = ({ product, setFlag }) => {
 	const { _id, title, img, type, brand, price, star } = product;
 	const handleDelete = () => {
 		if (window.confirm('Are you Sure?')) {
-			fetch(`http://localhost:5000/products/${_id}`, {
+			fetch(`https://specssphere.herokuapp.com/products/${_id}`, {
 				method: 'DELETE',
 			})
 				.then((res) => res.text()) // or res.json()
