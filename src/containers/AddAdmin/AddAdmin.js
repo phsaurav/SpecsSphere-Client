@@ -12,7 +12,6 @@ const AddAdmin = () => {
 		const email = data.email;
 
 		const user = { email };
-		console.log(user);
 		fetch('https://specssphere.herokuapp.com/users/admin', {
 			method: 'PUT',
 			headers: {

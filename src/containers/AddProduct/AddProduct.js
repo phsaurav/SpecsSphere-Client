@@ -10,7 +10,6 @@ const AddProduct = () => {
 
 	const onSubmit = (data) => {
 		Object.keys(data).forEach((k) => data[k] === '' && delete data[k]);
-		console.log(data);
 
 		fetch('https://specssphere.herokuapp.com/products', {
 			method: 'POST',

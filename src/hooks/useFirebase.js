@@ -49,7 +49,6 @@ const useFirebase = () => {
 	};
 
 	const saveUser = (email, displayName, photoURL, method) => {
-		console.log(email, displayName, photoURL);
 		const user = { email, displayName, photoURL };
 		fetch('https://specssphere.herokuapp.com/users', {
 			method: method,

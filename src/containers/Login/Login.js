@@ -39,7 +39,6 @@ const Login = () => {
 	};
 
 	const onSubmit = (data) => {
-		console.log(data);
 		processLogin(data.email, data.password)
 			.then((res) => {
 				setUser(res.user);

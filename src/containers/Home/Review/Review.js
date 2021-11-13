@@ -7,7 +7,7 @@ const Review = ({ singleReview }) => {
 	const { name, img, email, review, star } = singleReview;
 	return (
 		<div className="pt-20 pb-10  select-none">
-			<div className="bg-white shadow-lg px-5 pt-5 pb-10 text-gray-800 mx-auto w-80 md:w-96 h-96 md:h-80">
+			<div className="bg-white shadow-lg px-5 pt-5 pb-10 text-gray-800 mx-auto w-64 md:w-96 h-96 md:h-80">
 				<div className="w-full pt-1 pb-5">
 					<div className="overflow-hidden rounded-full w-20 h-20 -mt-16 mx-auto shadow-lg">
 						<img src={img} alt="" />

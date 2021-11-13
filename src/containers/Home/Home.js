@@ -33,14 +33,14 @@ const Home = () => {
 						}}
 					>
 						<div className=" p-10 pt-10  pb-20  flex  flex-col  flex-wrap  justify-center  content-center">
-							<div className=" my-1 mt-5 tracking-wide  text-3xl font-semibold  text-white  antialiased  text-center">
+							<div className=" my-1 mt-5 tracking-wide text-2xl md:text-3xl font-semibold  text-white  antialiased  text-center">
 								Join The Exclusive Club
 							</div>
-							<div className=" my-1 tracking-wider p-0 font-light text-xl  text-white  antialiased  text-center">
+							<div className=" my-1 tracking-wider p-0 font-light text-base md:text-xl  text-white  antialiased  text-center">
 								See our latest collections & exclusive offers
 								before the crowd!
 							</div>
-							<div className=" mt-3 w-96 mx-auto  flex  flex-row  flex-wrap">
+							<div className=" mt-3 w-80 md:w-96 mx-auto  flex  flex-row  flex-wrap">
 								<input
 									type="text"
 									className=" text-gray-600  w-2/3  p-2 px-5  rounded-l-lg"

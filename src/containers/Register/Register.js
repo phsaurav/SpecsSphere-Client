@@ -41,7 +41,6 @@ const Register = () => {
 	};
 
 	const onSubmit = (data) => {
-		console.log(data);
 		if (data?.password?.length <= 5) {
 			setError('Password Must be atleast 6 character long');
 			return;

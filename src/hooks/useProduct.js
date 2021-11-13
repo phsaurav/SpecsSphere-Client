@@ -7,7 +7,6 @@ const useProduct = (id) => {
 		fetch(`https://specssphere.herokuapp.com/products/${id}`)
 			.then((res) => res.json())
 			.then((data) => {
-				console.log(data);
 				setProduct(data);
 			});
 	}, [id]);
