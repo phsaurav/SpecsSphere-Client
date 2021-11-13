@@ -344,16 +344,8 @@ const DashHeader = () => {
 												Log Out
 											</button>
 											<div className="flex items-center justify-center h-8 mr-1 py-6 bg-brand-2 w-full">
-												<div className="w-6 h-6 m-1 text-xl border-bra">
-													{user.photoURL ? (
-														<img
-															className="rounded-full"
-															src={user.photoURL}
-															alt=""
-														/>
-													) : (
-														<FaUserCircle className="text-brand-2 text-xl h-6 w-6" />
-													)}
+												<div className="w-3 h-3 m-1 text-xl border-bra mt-4">
+													<BiUser className="text-black text-xl h-4 w-4" />
 												</div>
 												<p className="font-base text-bg-brand-1  py-1 transition duration-300 ease-in-out text-left pl-1 text-lg uppercase">
 													{user.displayName}
