@@ -115,6 +115,9 @@ const AddProduct = () => {
 									<option value="1">
 										Initial Review: 1 Star
 									</option>
+									<option value="0">
+										Initial Review: 0 Star
+									</option>
 								</select>
 								<button className="text-white py-2 px-7 w-96 rounded-md bg-brand-1 hover:bg-white border-2 border-brand-1 hover:text-black">
 									Add Product
