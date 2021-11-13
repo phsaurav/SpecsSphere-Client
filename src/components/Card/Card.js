@@ -8,7 +8,7 @@ const Card = ({ product }) => {
 	const { _id, title, img, type, brand, price, star } = product;
 	return (
 		<div>
-			<div className="flex flex-col w-96 bg-white overflow-hidden h-96 justify-center mx-auto transition duration-500 ease-in-out hover:shadow-md ">
+			<div className="flex flex-col w-96 bg-white overflow-hidden h-96 justify-center mx-auto transition duration-500 ease-in-out transform hover:-translate-y-2 hover:shadow-md ">
 				<Link to={`/order/${_id}`}>
 					<div
 						className="bg-contain h-44 bg-no-repeat relative mx-auto"

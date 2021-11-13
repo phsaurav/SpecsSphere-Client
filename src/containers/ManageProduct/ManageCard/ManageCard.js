@@ -20,7 +20,7 @@ const ManageCard = ({ product, setFlag }) => {
 	};
 	return (
 		<div>
-			<div className="flex flex-col w-96 bg-white overflow-hidden h-96 justify-center mx-auto transition duration-500 ease-in-out hover:shadow-md relative">
+			<div className="flex flex-col w-96 bg-white overflow-hidden h-96 justify-center mx-auto transition duration-500 ease-in-out transform hover:-translate-y-2 hover:shadow-md relative">
 				<button
 					type="button"
 					className="bg-white rounded-md p-1 inline-flex items-center justify-center  absolute top-0 right-0 hover:text-white hover:bg-brand-12 focus:outline-none focus:ring-2 focus:ring-inset  text-2xl focus:ring-indigo-500 text-brand-12 border-2 border-brand-12 z-20"
@@ -34,15 +34,7 @@ const ManageCard = ({ product, setFlag }) => {
 						style={{
 							backgroundImage: `url(${img})`,
 						}}
-					>
-						<div className="flex flex-col justify-center ">
-							<div className="h-96 transition duration-500 ease-in-out hover:opacity-90 opacity-0">
-								<div className="bg-brand-1 text-white h-10   absolute bottom-0 w-full pt-2 ">
-									Order Now
-								</div>
-							</div>
-						</div>
-					</div>
+					></div>
 
 					<div className="p-4 flex flex-col justify-center text-center">
 						<p className="mt-2 text-gray-600 text-xs tracking-widest uppercase">
