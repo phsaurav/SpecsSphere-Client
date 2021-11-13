@@ -28,12 +28,12 @@ const Login = () => {
 				const user = res.user;
 				setUser(user);
 				saveUser(user.email, user.displayName, user.photoURL, 'PUT');
+				history.push(redirect_uri);
 			})
 			.catch((error) => {
 				setError(error.message);
 			})
 			.finally(() => {
-				history.push(redirect_uri);
 				setIsLoading(false);
 			});
 	};
@@ -44,12 +44,12 @@ const Login = () => {
 			.then((res) => {
 				setUser(res.user);
 				setError('');
+				history.push(redirect_uri);
 			})
 			.catch((error) => {
 				setError(error.message);
 			})
 			.finally(() => {
-				history.push(redirect_uri);
 				window.location.reload();
 				setIsLoading(false);
 			});

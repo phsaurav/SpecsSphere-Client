@@ -72,15 +72,14 @@ const Register = () => {
 					.then(() => {})
 					.catch((err) => {});
 				setError('');
-				console.log(res.user);
+				history.push(redirect_uri);
+				window.location.reload();
 				setUser(res.user);
 			})
 			.catch((error) => {
 				setError(error.message);
 			})
 			.finally(() => {
-				history.push(redirect_uri);
-				window.location.reload();
 				setIsLoading(false);
 			});
 	};
