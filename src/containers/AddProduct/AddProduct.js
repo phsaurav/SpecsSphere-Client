@@ -38,7 +38,7 @@ const AddProduct = () => {
 					<div className="">
 						<div
 							className=" flex justify-center pt-20"
-							style={{ height: '70vh' }}
+							style={{ height: '600px' }}
 						>
 							<form
 								className="flex flex-col items-center text-brand-1"

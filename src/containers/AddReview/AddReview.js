@@ -39,7 +39,7 @@ const AddReview = () => {
 					<div className="">
 						<div
 							className=" flex justify-center min-h-screen pt-20"
-							style={{ height: '70vh' }}
+							style={{ height: '400px' }}
 						>
 							<form
 								className="flex flex-col items-center text-brand-1"
