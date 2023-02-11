@@ -12,7 +12,7 @@ const AddAdmin = () => {
 		const email = data.email;
 
 		const user = { email };
-		fetch('https://specssphere.herokuapp.com/users/admin', {
+		fetch('https://specssphere.up.railway.app/users/admin', {
 			method: 'PUT',
 			headers: {
 				authorization: `Bearer ${token}`,

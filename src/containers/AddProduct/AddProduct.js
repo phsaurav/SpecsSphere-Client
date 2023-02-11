@@ -1,8 +1,8 @@
 import React from 'react';
-import DashHeader from '../../components/DashHeader/DashHeader';
-import Footer from '../../components/Footer/Footer';
 import { useForm } from 'react-hook-form';
 import { useHistory } from 'react-router-dom';
+import DashHeader from '../../components/DashHeader/DashHeader';
+import Footer from '../../components/Footer/Footer';
 
 const AddProduct = () => {
 	const { handleSubmit, register, reset } = useForm();
@@ -11,7 +11,7 @@ const AddProduct = () => {
 	const onSubmit = (data) => {
 		Object.keys(data).forEach((k) => data[k] === '' && delete data[k]);
 
-		fetch('https://specssphere.herokuapp.com/products', {
+		fetch('https://specssphere.up.railway.app/products', {
 			method: 'POST',
 			headers: {
 				'content-type': 'application/json',

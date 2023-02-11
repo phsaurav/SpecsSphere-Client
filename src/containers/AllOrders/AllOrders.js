@@ -1,6 +1,4 @@
-import React from 'react';
-import { useEffect } from 'react';
-import { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import DashHeader from '../../components/DashHeader/DashHeader';
 import Footer from '../../components/Footer/Footer';
 import useAuth from '../../hooks/useAuth';
@@ -12,7 +10,7 @@ const AllOrders = () => {
 	const [flag, setFlag] = useState(1);
 	const [stateFlag, setStateFlag] = useState(1);
 	useEffect(() => {
-		fetch(`https://specssphere.herokuapp.com/order`)
+		fetch(`https://specssphere.up.railway.app/order`)
 			.then((res) => res.json())
 			.then((data) => {
 				setOrders(data);

@@ -1,8 +1,7 @@
 import React from 'react';
+import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
 import { CgClose } from 'react-icons/cg';
 import Rating from 'react-rating';
-import { AiFillStar } from 'react-icons/ai';
-import { AiOutlineStar } from 'react-icons/ai';
 import useProduct from '../../../hooks/useProduct';
 
 const AllOrderCard = ({ order, setFlag, stateFlag, setStateFlag }) => {
@@ -10,7 +9,7 @@ const AllOrderCard = ({ order, setFlag, stateFlag, setStateFlag }) => {
 	const [product] = useProduct(productId);
 	const handleDelete = () => {
 		if (window.confirm('Are you Sure?')) {
-			fetch(`https://specssphere.herokuapp.com/order/${_id}`, {
+			fetch(`https://specssphere.up.railway.app/order/${_id}`, {
 				method: 'DELETE',
 			})
 				.then((res) => res.text()) // or res.json()
@@ -20,7 +19,7 @@ const AllOrderCard = ({ order, setFlag, stateFlag, setStateFlag }) => {
 		}
 	};
 	const handleStatus = () => {
-		fetch(`https://specssphere.herokuapp.com/status/${_id}`, {
+		fetch(`https://specssphere.up.railway.app/status/${_id}`, {
 			method: 'PUT',
 			headers: {
 				'content-type': 'application/json',

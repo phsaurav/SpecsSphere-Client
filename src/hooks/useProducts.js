@@ -4,7 +4,7 @@ const useProducts = () => {
 	const [products, setProducts] = useState([]);
 
 	useEffect(() => {
-		fetch(`https://specssphere.herokuapp.com/products`)
+		fetch(`https://specssphere.up.railway.app/products`)
 			.then((res) => res.json())
 			.then((data) => {
 				setProducts(data);

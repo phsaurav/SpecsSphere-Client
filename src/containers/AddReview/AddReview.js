@@ -1,7 +1,7 @@
 import React from 'react';
+import { useForm } from 'react-hook-form';
 import DashHeader from '../../components/DashHeader/DashHeader';
 import Footer from '../../components/Footer/Footer';
-import { useForm } from 'react-hook-form';
 import useAuth from '../../hooks/useAuth';
 
 const AddReview = () => {
@@ -13,7 +13,7 @@ const AddReview = () => {
 		data.img = user.photoURL;
 		data.email = user.email;
 
-		fetch('https://specssphere.herokuapp.com/review', {
+		fetch('https://specssphere.up.railway.app/review', {
 			method: 'POST',
 			headers: {
 				'content-type': 'application/json',

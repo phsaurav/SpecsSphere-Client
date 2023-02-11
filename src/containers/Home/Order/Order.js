@@ -1,18 +1,15 @@
 import React from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
+import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
+import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
+import Rating from 'react-rating';
+import { Link, useHistory, useParams } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
 import Footer from '../../../components/Footer/Footer';
 import Header from '../../../components/Header/Header';
 import Hero from '../../../components/Hero/Hero';
-import useProduct from '../../../hooks/useProduct';
-import Rating from 'react-rating';
-import { AiFillStar } from 'react-icons/ai';
-import { AiOutlineStar } from 'react-icons/ai';
-import { IoIosArrowBack } from 'react-icons/io';
-import { IoIosArrowForward } from 'react-icons/io';
-import { HashLink } from 'react-router-hash-link';
-import { useForm } from 'react-hook-form';
 import useAuth from '../../../hooks/useAuth';
-import { useHistory } from 'react-router-dom';
+import useProduct from '../../../hooks/useProduct';
 
 const Order = () => {
 	const { id } = useParams();
@@ -26,7 +23,7 @@ const Order = () => {
 		data.productId = id;
 		data.img = user?.photoURL;
 		data.status = 'pending';
-		fetch('https://specssphere.herokuapp.com/order', {
+		fetch('https://specssphere.up.railway.app/order', {
 			method: 'POST',
 			headers: {
 				'content-type': 'application/json',

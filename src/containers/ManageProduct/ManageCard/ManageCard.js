@@ -1,15 +1,14 @@
 import React from 'react';
-import Rating from 'react-rating';
-import { AiFillStar } from 'react-icons/ai';
-import { AiOutlineStar } from 'react-icons/ai';
-import { Link } from 'react-router-dom';
+import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
 import { MdClose } from 'react-icons/md';
+import Rating from 'react-rating';
+import { Link } from 'react-router-dom';
 
 const ManageCard = ({ product, setFlag }) => {
 	const { _id, title, img, type, brand, price, star } = product;
 	const handleDelete = () => {
 		if (window.confirm('Are you Sure?')) {
-			fetch(`https://specssphere.herokuapp.com/products/${_id}`, {
+			fetch(`https://specssphere.up.railway.app/products/${_id}`, {
 				method: 'DELETE',
 			})
 				.then((res) => res.text()) // or res.json()

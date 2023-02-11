@@ -10,7 +10,7 @@ const MyOrders = () => {
 	const [flag, setFlag] = useState(1);
 
 	useEffect(() => {
-		fetch(`https://specssphere.herokuapp.com/order/byemail`, {
+		fetch(`https://specssphere.up.railway.app/order/byemail`, {
 			method: 'POST',
 			headers: {
 				'content-type': 'application/json',
