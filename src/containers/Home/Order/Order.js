@@ -23,7 +23,7 @@ const Order = () => {
 		data.productId = id;
 		data.img = user?.photoURL;
 		data.status = 'pending';
-		fetch('https://somadhan.onrender.com/order', {
+		fetch('https://specssphere-server.onrender.com/order', {
 			method: 'POST',
 			headers: {
 				'content-type': 'application/json',

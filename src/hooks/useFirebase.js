@@ -44,7 +44,7 @@ const useFirebase = () => {
 
 	const saveUser = (email, displayName, photoURL, method) => {
 		const user = { email, displayName, photoURL };
-		fetch('https://somadhan.onrender.com/users', {
+		fetch('https://specssphere-server.onrender.com/users', {
 			method: method,
 			headers: {
 				'content-type': 'application/json',
@@ -54,7 +54,7 @@ const useFirebase = () => {
 	};
 
 	useEffect(() => {
-		fetch(`https://somadhan.onrender.com/users/${user?.email}`)
+		fetch(`https://specssphere-server.onrender.com/users/${user?.email}`)
 			.then((res) => res.json())
 			.then((data) => {
 				setAdmin(data.admin);

@@ -10,7 +10,7 @@ const AllOrders = () => {
 	const [flag, setFlag] = useState(1);
 	const [stateFlag, setStateFlag] = useState(1);
 	useEffect(() => {
-		fetch(`https://somadhan.onrender.com/order`)
+		fetch(`https://specssphere-server.onrender.com/order`)
 			.then((res) => res.json())
 			.then((data) => {
 				setOrders(data);

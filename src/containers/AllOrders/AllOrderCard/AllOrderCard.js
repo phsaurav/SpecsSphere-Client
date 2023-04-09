@@ -9,7 +9,7 @@ const AllOrderCard = ({ order, setFlag, stateFlag, setStateFlag }) => {
 	const [product] = useProduct(productId);
 	const handleDelete = () => {
 		if (window.confirm('Are you Sure?')) {
-			fetch(`https://somadhan.onrender.com/order/${_id}`, {
+			fetch(`https://specssphere-server.onrender.com/order/${_id}`, {
 				method: 'DELETE',
 			})
 				.then((res) => res.text()) // or res.json()
@@ -19,7 +19,7 @@ const AllOrderCard = ({ order, setFlag, stateFlag, setStateFlag }) => {
 		}
 	};
 	const handleStatus = () => {
-		fetch(`https://somadhan.onrender.com/status/${_id}`, {
+		fetch(`https://specssphere-server.onrender.com/status/${_id}`, {
 			method: 'PUT',
 			headers: {
 				'content-type': 'application/json',

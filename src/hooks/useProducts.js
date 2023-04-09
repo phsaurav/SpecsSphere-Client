@@ -4,7 +4,7 @@ const useProducts = () => {
 	const [products, setProducts] = useState([]);
 
 	useEffect(() => {
-		fetch(`https://somadhan.onrender.com/products`)
+		fetch(`https://specssphere-server.onrender.com/products`)
 			.then((res) => res.json())
 			.then((data) => {
 				setProducts(data);
