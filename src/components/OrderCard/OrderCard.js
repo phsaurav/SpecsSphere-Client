@@ -9,7 +9,7 @@ const OrderCard = ({ order, setFlag, statusFlag, setStatusFlag }) => {
 	const [product] = useProduct(productId);
 	const handleDelete = () => {
 		if (window.confirm('Are you Sure?')) {
-			fetch(`https://specssphere-server.onrender.com/order/${_id}`, {
+			fetch(`https://specssphere-server-production.up.railway.app/order/${_id}`, {
 				method: 'DELETE',
 			})
 				.then((res) => res.text()) // or res.json()

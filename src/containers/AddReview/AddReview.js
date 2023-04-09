@@ -13,7 +13,7 @@ const AddReview = () => {
 		data.img = user.photoURL;
 		data.email = user.email;
 
-		fetch('https://specssphere-server.onrender.com/review', {
+		fetch('https://specssphere-server-production.up.railway.app/review', {
 			method: 'POST',
 			headers: {
 				'content-type': 'application/json',

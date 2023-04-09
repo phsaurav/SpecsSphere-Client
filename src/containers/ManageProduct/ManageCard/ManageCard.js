@@ -8,7 +8,7 @@ const ManageCard = ({ product, setFlag }) => {
 	const { _id, title, img, type, brand, price, star } = product;
 	const handleDelete = () => {
 		if (window.confirm('Are you Sure?')) {
-			fetch(`https://specssphere-server.onrender.com/products/${_id}`, {
+			fetch(`https://specssphere-server-production.up.railway.app/products/${_id}`, {
 				method: 'DELETE',
 			})
 				.then((res) => res.text()) // or res.json()
