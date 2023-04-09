@@ -11,7 +11,7 @@ const AddProduct = () => {
 	const onSubmit = (data) => {
 		Object.keys(data).forEach((k) => data[k] === '' && delete data[k]);
 
-		fetch('https://specssphere.up.railway.app/products', {
+		fetch('https://somadhan.onrender.com/products', {
 			method: 'POST',
 			headers: {
 				'content-type': 'application/json',

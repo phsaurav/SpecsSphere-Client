@@ -12,7 +12,7 @@ const AddAdmin = () => {
 		const email = data.email;
 
 		const user = { email };
-		fetch('https://specssphere.up.railway.app/users/admin', {
+		fetch('https://somadhan.onrender.com/users/admin', {
 			method: 'PUT',
 			headers: {
 				authorization: `Bearer ${token}`,
