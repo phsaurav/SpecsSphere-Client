@@ -10,7 +10,7 @@ const MyOrders = () => {
 	const [flag, setFlag] = useState(1);
 
 	useEffect(() => {
-		fetch(`https://specssphere-server-production.up.railway.app/order/byemail`, {
+		fetch(`https://specs-sphere.vercel.app/order/byemail`, {
 			method: 'POST',
 			headers: {
 				'content-type': 'application/json',

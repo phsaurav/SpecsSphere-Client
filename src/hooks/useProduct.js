@@ -4,7 +4,7 @@ const useProduct = (id) => {
 	const [product, setProduct] = useState([]);
 
 	useEffect(() => {
-		fetch(`https://specssphere-server-production.up.railway.app/products/${id}`)
+		fetch(`https://specs-sphere.vercel.app/products/${id}`)
 			.then((res) => res.json())
 			.then((data) => {
 				setProduct(data);

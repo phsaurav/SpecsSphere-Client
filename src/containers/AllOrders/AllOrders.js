@@ -10,7 +10,7 @@ const AllOrders = () => {
 	const [flag, setFlag] = useState(1);
 	const [stateFlag, setStateFlag] = useState(1);
 	useEffect(() => {
-		fetch(`https://specssphere-server-production.up.railway.app/order`)
+		fetch(`https://specs-sphere.vercel.app/order`)
 			.then((res) => res.json())
 			.then((data) => {
 				setOrders(data);

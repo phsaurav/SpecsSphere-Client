@@ -4,7 +4,7 @@ const useReviews = () => {
 	const [reviews, setReviews] = useState([]);
 
 	useEffect(() => {
-		fetch(`https://specssphere-server-production.up.railway.app/reviews`)
+		fetch(`https://specs-sphere.vercel.app/reviews`)
 			.then((res) => res.json())
 			.then((data) => {
 				setReviews(data);

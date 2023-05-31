@@ -1,7 +1,13 @@
 import {
-	createUserWithEmailAndPassword, getAuth, getIdToken, GoogleAuthProvider,
-	onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut,
-	updateProfile
+	createUserWithEmailAndPassword,
+	getAuth,
+	getIdToken,
+	GoogleAuthProvider,
+	onAuthStateChanged,
+	signInWithEmailAndPassword,
+	signInWithPopup,
+	signOut,
+	updateProfile,
 } from 'firebase/auth';
 import { useEffect, useState } from 'react';
 import initializeAuthentication from '../services/Firebase/firbase.init';
@@ -44,7 +50,7 @@ const useFirebase = () => {
 
 	const saveUser = (email, displayName, photoURL, method) => {
 		const user = { email, displayName, photoURL };
-		fetch('https://specssphere-server-production.up.railway.app/users', {
+		fetch('https://specs-sphere.vercel.app/users', {
 			method: method,
 			headers: {
 				'content-type': 'application/json',
@@ -54,7 +60,7 @@ const useFirebase = () => {
 	};
 
 	useEffect(() => {
-		fetch(`https://specssphere-server-production.up.railway.app/users/${user?.email}`)
+		fetch(`https://specs-sphere.vercel.app/users/${user?.email}`)
 			.then((res) => res.json())
 			.then((data) => {
 				setAdmin(data.admin);

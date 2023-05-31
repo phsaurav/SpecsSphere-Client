@@ -7,7 +7,7 @@ const ManageProduct = () => {
 	const [products, setProducts] = useState([]);
 	const [flag, setFlag] = useState(1);
 	useEffect(() => {
-		fetch(`https://specssphere-server-production.up.railway.app/products`)
+		fetch(`https://specs-sphere.vercel.app/products`)
 			.then((res) => res.json())
 			.then((data) => {
 				setProducts(data);

@@ -11,7 +11,7 @@ const AddProduct = () => {
 	const onSubmit = (data) => {
 		Object.keys(data).forEach((k) => data[k] === '' && delete data[k]);
 
-		fetch('https://specssphere-server-production.up.railway.app/products', {
+		fetch('https://specs-sphere.vercel.app/products', {
 			method: 'POST',
 			headers: {
 				'content-type': 'application/json',

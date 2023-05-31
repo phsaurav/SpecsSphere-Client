@@ -23,7 +23,7 @@ const Order = () => {
 		data.productId = id;
 		data.img = user?.photoURL;
 		data.status = 'pending';
-		fetch('https://specssphere-server-production.up.railway.app/order', {
+		fetch('https://specs-sphere.vercel.app/order', {
 			method: 'POST',
 			headers: {
 				'content-type': 'application/json',
